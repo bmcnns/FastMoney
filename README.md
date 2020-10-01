@@ -1,3 +1,3 @@
-# se-fastmoney
+# CSCI3130-Fall2020-A1
 
-Group 11 - Fast Money Project
+This project contains the code for CSCI 3130 assignment A1
