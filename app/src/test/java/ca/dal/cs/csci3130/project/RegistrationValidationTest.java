@@ -18,39 +18,57 @@ public class RegistrationValidationTest {
     }
 
     @Test
+    /**
+     * Rejects usernames with non alpha numeric characters
+     */
     public void rejectsNonAlphanumericUsername() {
-        assertTrue(validator.isValidUsername("abuun*"));
-        assertTrue(validator.isValidUsername("@@@"));
-        assertTrue(validator.isValidUsername("øusername"));
+        assertFalse(validator.isValidUsername("abuun*"));
+        assertFalse(validator.isValidUsername("@@@"));
+        assertFalse(validator.isValidUsername("øusername"));
     }
 
     @Test
+    /**
+     * Rejects usernames with no entered value
+     */
     public void rejectsEmptyUsername() {
         assertTrue(validator.isValidUsername(""));
     }
 
     @Test
+    /**
+     * Accepts valid usernames
+     */
     public void acceptsValidUsername() {
-        assertFalse(validator.isValidUsername("foo"));
-        assertFalse(validator.isValidUsername("bar123"));
-        assertFalse(validator.isValidUsername("123bar"));
+        assertTrue(validator.isValidUsername("foo"));
+        assertTrue(validator.isValidUsername("bar123"));
+        assertTrue(validator.isValidUsername("123bar"));
     }
 
     @Test
+    /**
+     * Rejects emails with invalid formats
+     */
     public void rejectsInvalidFormatEmail() {
-        assertTrue(validator.isValidEmail("Abc.example.com"));
-        assertTrue(validator.isValidEmail("@Abc@exampl@e.com"));
-        assertTrue(validator.isValidEmail("a\"b(c)d,e:f;gi[j\\k]l"));
+        assertFalse(validator.isValidEmail("Abc.example.com"));
+        assertFalse(validator.isValidEmail("@Abc@exampl@e.com"));
+        assertFalse(validator.isValidEmail("a\"b(c)d,e:f;gi[j\\k]l"));
     }
 
     @Test
+    /**
+     * Rejects emails with empty values
+     */
     public void rejectsEmptyEmail() {
-        assertTrue(validator.isValidEmail(""));
+        assertFalse(validator.isValidEmail(""));
     }
 
+    /**
+     * Accepts valid emails.
+     */
     @Test
     public void acceptsValidEmail() {
-        assertFalse(validator.isValidEmail("john.doe@example.com"));
+        assertTrue(validator.isValidEmail("john.doe@example.com"));
     }
 
 }

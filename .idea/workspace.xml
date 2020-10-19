@@ -8,8 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f5ac7238-31d6-4322-b6c6-3cdb71a094eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/RegistrationValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/RegistrationValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/RegistrationValidationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/RegistrationValidationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
