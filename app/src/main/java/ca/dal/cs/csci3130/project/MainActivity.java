@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
 
+    /**
+     * Initializes the app. Main entry point.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +32,21 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
     }
 
+    /**
+     * Creates a user from the information given in the registration form.
+     */
     public void submitForm(View view) {
+
+        // Gets registration form's values for usernames.
         TextInputEditText usernameField = (TextInputEditText)this.findViewById(R.id.username_field);
         TextInputEditText emailField = (TextInputEditText)this.findViewById(R.id.email_field);
         final String username = usernameField.getText().toString();
         String email = emailField.getText().toString();
 
+        // Creates a validator object to verify the information given is good.
         RegistrationValidator validator = new RegistrationValidator();
 
+        // Bad information, show errors.
         if (!validator.isValidUsername(username)) {
             TextView usernameError = (TextView)this.findViewById(R.id.username_error);
             usernameError.setVisibility(View.VISIBLE);
@@ -54,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        // Bad information shows errors.
         if (!validator.isValidEmail(email)) {
             TextView emailError = (TextView)this.findViewById(R.id.email_error);
             emailError.setVisibility(View.VISIBLE);
@@ -71,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        // Good information sign-in.
         if (validator.isValidUsername(username) && validator.isValidEmail(email)) {
 
             final User user = new User(username, email);
@@ -80,17 +92,21 @@ public class MainActivity extends AppCompatActivity {
             // Create the pop-up
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+            // Attempt to sign in with information
             firebaseAuth.signInWithEmailAndPassword(email, username)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            // Database already has the account.
                             if (task.isSuccessful()) {
                                 TextView existingAccountError = findViewById(R.id.existingAccountError);
                                 existingAccountError.setVisibility(View.VISIBLE);
                                 firebaseAuth.signOut();
+                            // New user, save them into database.
                             } else {
                                 firebaseAuth.createUserWithEmailAndPassword(givenEmail, givenUsername);
 
+                                // Show welcome message.
                                 builder.setTitle("Welcome " + user.getUsername() + "!")
                                         .setMessage("A welcome email was sent to " + user.getEmail())
                                         .show();
