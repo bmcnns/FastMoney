@@ -32,7 +32,7 @@ public class RegistrationValidationTest {
      * Rejects usernames with no entered value
      */
     public void rejectsEmptyUsername() {
-        assertTrue(validator.isValidUsername(""));
+        assertFalse(validator.isValidUsername(""));
     }
 
     @Test
