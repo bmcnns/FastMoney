@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="ca.dal.cs.csci3130.project.MainActivity">
+        <activity android:name=".ViewUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
