@@ -1,7 +1,9 @@
-package ca.dal.cs.csci3130.project;
+package ca.dal.cs.csci3130.project.registration;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import ca.dal.cs.csci3130.project.models.Account;
 
 public class RegistrationValidator {
     /**
@@ -56,7 +58,7 @@ public class RegistrationValidator {
      * Checks if the user is valid.
      * @return true if the user has a valid email and valid username.
      */
-    public boolean isValidUser(User user) {
+    public boolean isValidUser(Account user) {
         return isValidEmail(user.getEmail()) && isValidUsername(user.getUsername());
     }
 }

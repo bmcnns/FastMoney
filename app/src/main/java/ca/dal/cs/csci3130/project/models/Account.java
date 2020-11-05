@@ -1,11 +1,11 @@
-package ca.dal.cs.csci3130.project;
+package ca.dal.cs.csci3130.project.models;
 
-public class User {
+public class Account {
 
     private String email;
     private String username;
 
-    public User(String email, String username) {
+    public Account(String email, String username) {
         this.email = email;
         this.username = username;
     }

@@ -1,4 +1,4 @@
-package ca.dal.cs.csci3130.project;
+package ca.dal.cs.csci3130.project.examples;
 
 import org.junit.Test;
 

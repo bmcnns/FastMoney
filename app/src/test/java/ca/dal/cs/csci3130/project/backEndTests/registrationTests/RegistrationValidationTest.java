@@ -1,7 +1,9 @@
-package ca.dal.cs.csci3130.project;
+package ca.dal.cs.csci3130.project.backEndTests.registrationTests;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import ca.dal.cs.csci3130.project.registration.RegistrationValidator;
 
 import static org.junit.Assert.*;
 
