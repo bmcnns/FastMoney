@@ -1,22 +1,22 @@
-package ca.dal.cs.csci3130.project;
+package ca.dal.cs.csci3130.project.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.app.AlertDialog;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
+import ca.dal.cs.csci3130.project.R;
+import ca.dal.cs.csci3130.project.registration.RegistrationValidator;
+import ca.dal.cs.csci3130.project.models.Account;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         // Good information sign-in.
         if (validator.isValidUsername(username) && validator.isValidEmail(email)) {
 
-            final User user = new User(username, email);
+            final Account user = new Account(username, email);
             final String givenUsername = username;
             final String givenEmail = email;
 

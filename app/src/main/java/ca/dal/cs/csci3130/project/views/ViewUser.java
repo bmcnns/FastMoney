@@ -1,4 +1,4 @@
-package ca.dal.cs.csci3130.project;
+package ca.dal.cs.csci3130.project.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,8 +12,9 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-
 import java.util.Map;
+
+import ca.dal.cs.csci3130.project.R;
 
 public class ViewUser extends AppCompatActivity {
 
