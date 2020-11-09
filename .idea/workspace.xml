@@ -7,9 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/JobView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_job.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs_job_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/EmployeeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_employee.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs_employee_view.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,10 +168,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="542" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604537229087" />
-    <state x="228" y="162" key="AndroidCreateResourceFileDialog" timestamp="1604892102194">
+    <state x="228" y="162" key="AndroidCreateResourceFileDialog" timestamp="1604892238968">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800@0.0.1280.800" timestamp="1604892102194" />
+    <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800@0.0.1280.800" timestamp="1604892238968" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604803639446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
