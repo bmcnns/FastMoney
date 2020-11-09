@@ -1,4 +1,6 @@
 package ca.dal.cs.csci3130.project.views;
 
-public class EmployeesActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class EmployeesActivity extends AppCompatActivity {
 }
