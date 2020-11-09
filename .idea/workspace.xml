@@ -7,9 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_employees.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/queryTests/UserQueryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests/UserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/EmployeesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/EmployeesActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/insertTests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests" />
     <property name="memory.settings.postsync.last.time.stamp" value="1603074781380" />
   </component>
   <component name="RecentsManager">
@@ -67,8 +67,10 @@
       <recent name="ca.dal.cs.csci3130.project.examples" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/insertTests" />
+      <recent name="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests" />
       <recent name="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/queryTests" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/insertTests" />
       <recent name="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
@@ -169,10 +171,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="542" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604537229087" />
-    <state x="228" y="162" key="AndroidCreateResourceFileDialog" timestamp="1604892833163">
+    <state x="228" y="162" key="AndroidCreateResourceFileDialog" timestamp="1604893125639">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800@0.0.1280.800" timestamp="1604892833163" />
+    <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800@0.0.1280.800" timestamp="1604893125639" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604803639446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
