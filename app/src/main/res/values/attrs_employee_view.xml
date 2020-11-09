@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="EmployeeView">
+        <attr name="employeeName" format="string" />
+        <attr name="employeeBio" format="string" />
+    </declare-styleable>
+</resources>
