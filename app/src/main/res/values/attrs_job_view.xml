@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="JobView">
+        <attr name="title" format="string" />
+        <attr name="employer" format="string" />
+        <attr name="location" format="string" />
+        <attr name="jobType" format="string" />
+        <attr name="payRate" format="string" />
+    </declare-styleable>
+</resources>
