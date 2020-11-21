@@ -7,7 +7,7 @@
     tools:context=".views.MainActivity">
 
     <TextView
-        android:id="@+id/email_label"
+        android:id="@+id/password_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toBottomOf="@id/username_error" />
 
     <TextView
-        android:id="@+id/username_label"
+        android:id="@+id/email_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -31,11 +31,11 @@
         android:id="@+id/username_field_layout"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/username_label"
-        app:layout_constraintTop_toBottomOf="@+id/username_label">
+        app:layout_constraintStart_toStartOf="@+id/email_label"
+        app:layout_constraintTop_toBottomOf="@+id/email_label">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username_field"
+            android:id="@+id/email_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/register_username_field" />
@@ -45,11 +45,11 @@
         android:id="@+id/email_field_layout"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/email_label"
-        app:layout_constraintTop_toBottomOf="@+id/email_label">
+        app:layout_constraintStart_toStartOf="@+id/password_label"
+        app:layout_constraintTop_toBottomOf="@+id/password_label">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_field"
+            android:id="@+id/password_field"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/register_email_field" />
@@ -61,7 +61,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="#FFFFFF"
-        android:onClick="submitForm"
         android:text="@string/register_button"
         app:layout_constraintStart_toStartOf="@+id/email_error"
         app:layout_constraintTop_toBottomOf="@+id/email_error" />
@@ -96,5 +95,14 @@
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/register_button"
         app:layout_constraintTop_toBottomOf="@+id/register_button" />
+
+    <Button
+        android:id="@+id/logoutTempBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="signOutUser"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

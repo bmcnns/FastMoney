@@ -1,116 +1,121 @@
 package ca.dal.cs.csci3130.project.views;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import ca.dal.cs.csci3130.project.R;
-import ca.dal.cs.csci3130.project.models.Account;
-import ca.dal.cs.csci3130.project.registration.RegistrationValidator;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    FirebaseAuth firebaseAuth;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    Button registerBtn;
+//    TextView loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        firebaseAuth = FirebaseAuth.getInstance();
-    }
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        registerBtn = findViewById(R.id.registerRGBtn);
+        final TextInputEditText emailField = this.findViewById(R.id.email_field);
+        final TextInputEditText passwordField = this.findViewById(R.id.password_field);
+        final EditText firstNameField = this.findViewById(R.id.first_name_field);
+        final EditText lastNameField = this.findViewById(R.id.last_name_field);
+        final EditText creditCardNumField = this.findViewById(R.id.credit_card_Num_field);
+        final EditText creditCardExpireField = this.findViewById(R.id.credit_card_expire_field);
+        final EditText cvvField = this.findViewById(R.id.cvv_field);
 
-    /**
-     * Creates a user from the information given in the registration form.
-     */
-    public void submitForm(View view) {
 
-        // Gets registration form's values for usernames.
-        TextInputEditText usernameField = (TextInputEditText)this.findViewById(R.id.username_field);
-        TextInputEditText emailField = (TextInputEditText)this.findViewById(R.id.email_field);
-        final String username = usernameField.getText().toString();
-        String email = emailField.getText().toString();
+        /**
+         * Creates a user from the information given in the registration form.
+         */
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        // Creates a validator object to verify the information given is good.
-        RegistrationValidator validator = new RegistrationValidator();
+                final String email = emailField.getText().toString();
+                final String password = passwordField.getText().toString();
+                final String firstName = firstNameField.getText().toString();
+                final String lastName = lastNameField.getText().toString();
+                final String creditCardNum = creditCardNumField.getText().toString();
+                final String creditCardExpire = creditCardExpireField.getText().toString();
+                final String ccv = cvvField.getText().toString();
 
-        // Bad information, show errors.
-        if (!validator.isValidUsername(username)) {
-            TextView usernameError = (TextView)this.findViewById(R.id.username_error);
-            usernameError.setVisibility(View.VISIBLE);
+                //if user is already logged in
+                if (fAuth.getCurrentUser() != null) {
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    finish();
+                }
 
-            if (validator.hasNonAlphanumericCharacters(username))
-            {
-                usernameError.setText(R.string.register_username_alphanumeric_error);
-            }
-            else if (validator.isMissingValue(username))
-            {
-                usernameError.setText(R.string.register_username_missing_error);
-            }
-            else {
-                usernameError.setText(R.string.unknown_error);
-            }
-        }
+                //Registration with firebase authentication and store data to firebase firestone
 
-        // Bad information shows errors.
-        if (!validator.isValidEmail(email)) {
-            TextView emailError = (TextView)this.findViewById(R.id.email_error);
-            emailError.setVisibility(View.VISIBLE);
+                fAuth.createUserWithEmailAndPassword(email, password).
+                        addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    String userID = fAuth.getCurrentUser().getUid();
+                                    DocumentReference documentReference = fStore.collection("users").document(userID);
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("email", email);
+                                    user.put("password", password);
+                                    user.put("firstName", firstName);
+                                    user.put("lastName", lastName);
+                                    user.put("creditCardNum", creditCardNum);
+                                    user.put("creditCardExpire", creditCardExpire);
+                                    user.put("ccv", ccv);
 
-            if (validator.isMissingValue(email))
-            {
-                emailError.setText(R.string.register_email_missing_error);
-            }
-            else if (!validator.isValidEmailFormat(email))
-            {
-                emailError.setText(R.string.register_email_format_error);
-            }
-            else {
-                emailError.setText(R.string.unknown_error);
-            }
-        }
 
-        // Good information sign-in.
-        if (validator.isValidUsername(username) && validator.isValidEmail(email)) {
+                                    /** Store extra User data to firestone once successful registration to firebase authentication
+                                     * */
 
-            final Account user = new Account(username, email);
-            final String givenUsername = username;
-            final String givenEmail = email;
+                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d("", "user have been registered");
+                                            Toast.makeText(RegistrationActivity.this, "user have been registered", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                        }
 
-            // Create the pop-up
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(RegistrationActivity.this, "Error" + e, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
 
-            // Attempt to sign in with information
-            firebaseAuth.signInWithEmailAndPassword(email, username)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            // Database already has the account.
-                            if (task.isSuccessful()) {
-                                TextView existingAccountError = findViewById(R.id.existingAccountError);
-                                existingAccountError.setVisibility(View.VISIBLE);
-                                firebaseAuth.signOut();
-                                // New user, save them into database.
-                            } else {
-                                firebaseAuth.createUserWithEmailAndPassword(givenEmail, givenUsername);
-
-                                // Show welcome message.
-                                builder.setTitle("Welcome " + user.getUsername() + "!")
-                                        .setMessage("A welcome email was sent to " + user.getEmail())
-                                        .show();
+                                    /* Jump to new Activity*/
+                                } else {
+                                    Toast.makeText(RegistrationActivity.this, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
-        }
+                        });
+            }
+
+
+        });
     }
 }
