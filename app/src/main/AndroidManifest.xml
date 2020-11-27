@@ -15,29 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.RegistrationActivity">
+        <activity android:name=".views.LandingPageActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="intent.LANDING_PAGE" />
             </intent-filter>
-        </activity>
-        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.ViewUser">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.JobsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.EmployeesActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
     </application>
 </manifest>
