@@ -9,8 +9,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="Adds espresso test stubs">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_landing_page.xml" afterDir="false" />
+    <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="testing: makes Landing Page espresso tests">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_espresso_espresso_intents_3_1_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_test_rules_1_1_0_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -22,16 +23,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/EmployeeView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/EmployeesActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/JobView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/JobsActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/LandingPageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/LandingPageActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/RegistrationActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/ViewUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_landing_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_landing_page.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +49,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="valueResourceFile" />
+        <option value="Class" />
         <option value="layoutResourceFile" />
       </list>
     </option>
@@ -110,7 +105,7 @@
       <recent name="ca.dal.cs.csci3130.project" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Android Instrumented Tests.LandingPage (1)">
     <configuration name="LogIn and 4 more" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <option name="TEST_OBJECT" value="pattern" />
@@ -122,23 +117,6 @@
         <pattern testClass="ca.dal.cs.csci3130.fastmoney.unitTests.Registration" />
         <pattern testClass="ca.dal.cs.csci3130.fastmoney.unitTests.ViewJob" />
       </patterns>
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogIn.emailTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ca.dal.cs.csci3130.fastmoney.unitTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ca.dal.cs.csci3130.fastmoney.unitTests" />
-      <option name="MAIN_CLASS_NAME" value="ca.dal.cs.csci3130.fastmoney.unitTests.LogIn" />
-      <option name="METHOD_NAME" value="emailTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -197,6 +175,102 @@
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LandingPage (1)" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="ca.dal.cs.csci3130.fastmoney.examples.integrationTests.LandingPage" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LandingPage" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="ca.dal.cs.csci3130.fastmoney.examples.espressoTests.LandingPage" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="INCLUDE_GRADLE_EXTRA_OPTIONS" value="true" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
       <method v="2">
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
@@ -299,10 +373,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android Instrumented Tests.LandingPage (1)" />
+        <item itemvalue="Android Instrumented Tests.LandingPage" />
         <item itemvalue="Android Instrumented Tests.Tests in 'ca.dal.cs.csci3130.fastmoney.examples.espressoTests'" />
         <item itemvalue="Android Instrumented Tests.showsYourProfileBu...()" />
         <item itemvalue="Android JUnit.LogIn and 4 more" />
-        <item itemvalue="Android JUnit.LogIn.emailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -345,7 +420,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606453724382</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implementation: skeleton layout for Landing Page">
+      <created>1606457513118</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606457513118</updated>
+    </task>
+    <task id="LOCAL-00006" summary="testing: implements Landing Page espresso and integration tests">
+      <created>1606460748696</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1606460748696</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -354,7 +443,9 @@
     <MESSAGE value="Adds unit test stubs" />
     <MESSAGE value="Adds espresso test stubs" />
     <MESSAGE value="Adds integration test stubs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds integration test stubs" />
+    <MESSAGE value="implementation: skeleton layout for Landing Page" />
+    <MESSAGE value="testing: implements Landing Page espresso and integration tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing: implements Landing Page espresso and integration tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="104" y="62" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606456982378">
@@ -366,6 +457,10 @@
     </state>
     <state x="289" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606449393910" />
     <state x="289" y="210" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.800@0.0.1280.800" timestamp="1603074739539" />
+    <state x="453" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1606459387302">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="453" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606459387302" />
     <state x="139" y="332" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1606452128711">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -384,19 +479,20 @@
     </state>
     <state x="271" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606454413553" />
     <state x="542" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604537229087" />
-    <state x="228" y="162" key="AndroidCreateResourceFileDialog" timestamp="1606454501207">
+    <state x="228" y="162" key="AndroidCreateResourceFileDialog" timestamp="1606460052882">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606454501207" />
+    <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606459390284" />
+    <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606460052882" />
     <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800@0.0.1280.800" timestamp="1604893125639" />
     <state x="228" y="112" key="AndroidThemeDialog" timestamp="1606456384482">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="228" y="112" key="AndroidThemeDialog/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606456384482" />
-    <state x="164" y="2" key="CommitChangelistDialog2" timestamp="1606453724029">
+    <state x="164" y="2" key="CommitChangelistDialog2" timestamp="1606460748177">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="164" y="2" key="CommitChangelistDialog2/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606453724029" />
+    <state x="164" y="2" key="CommitChangelistDialog2/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606460748177" />
     <state x="127" y="67" key="DiffContextDialog" timestamp="1606446772866">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -405,26 +501,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/-1680.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1604803639446" />
-    <state width="1238" height="170" key="GridCell.Tab.0.bottom" timestamp="1606456878518">
+    <state width="1238" height="257" key="GridCell.Tab.0.bottom" timestamp="1606460821861">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="619" height="440" key="GridCell.Tab.0.bottom/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606456793583" />
-    <state width="1238" height="170" key="GridCell.Tab.0.bottom/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606456878518" />
-    <state width="1238" height="170" key="GridCell.Tab.0.center" timestamp="1606456878516">
+    <state width="1238" height="439" key="GridCell.Tab.0.bottom/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606459150238" />
+    <state width="1238" height="257" key="GridCell.Tab.0.bottom/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606460821861" />
+    <state width="1238" height="257" key="GridCell.Tab.0.center" timestamp="1606460821857">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="619" height="440" key="GridCell.Tab.0.center/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606456793575" />
-    <state width="1238" height="170" key="GridCell.Tab.0.center/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606456878516" />
-    <state width="1238" height="170" key="GridCell.Tab.0.left" timestamp="1606456878515">
+    <state width="1238" height="439" key="GridCell.Tab.0.center/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606459150236" />
+    <state width="1238" height="257" key="GridCell.Tab.0.center/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606460821857" />
+    <state width="1238" height="257" key="GridCell.Tab.0.left" timestamp="1606460821855">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="619" height="440" key="GridCell.Tab.0.left/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606456793568" />
-    <state width="1238" height="170" key="GridCell.Tab.0.left/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606456878515" />
-    <state width="1238" height="170" key="GridCell.Tab.0.right" timestamp="1606456878517">
+    <state width="1238" height="439" key="GridCell.Tab.0.left/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606459150235" />
+    <state width="1238" height="257" key="GridCell.Tab.0.left/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606460821855" />
+    <state width="1238" height="257" key="GridCell.Tab.0.right" timestamp="1606460821859">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="619" height="440" key="GridCell.Tab.0.right/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606456793580" />
-    <state width="1238" height="170" key="GridCell.Tab.0.right/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606456878517" />
+    <state width="1238" height="439" key="GridCell.Tab.0.right/0.0.1280.800/-1080.-1097.1080.1897@0.0.1280.800" timestamp="1606459150237" />
+    <state width="1238" height="257" key="GridCell.Tab.0.right/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606460821859" />
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2" timestamp="1606460752596">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="240" y="128" key="Vcs.Push.Dialog.v2/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606460752596" />
     <state x="255" y="299" key="com.intellij.ide.util.TipDialog" timestamp="1606446252996">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

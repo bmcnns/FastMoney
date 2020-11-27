@@ -35,14 +35,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="5dp"
             android:background="@android:drawable/dialog_holo_light_frame"
             android:onClick="redirectToProfilePage"
             android:paddingVertical="30dp"
             android:shadowRadius="3"
             android:text="Your profile"
-            android:textAllCaps="false" />
+            android:textAllCaps="true" />
 
         <Button
             android:id="@+id/workButton"
