@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="0px"
-    tools:context="ca.dal.cs.csci3130.project.views.ViewUser">
+    tools:context="ca.dal.cs.csci3130.fastmoney.views.ViewUser">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"

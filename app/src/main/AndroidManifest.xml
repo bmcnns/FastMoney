@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ca.dal.cs.csci3130.project">
+    package="ca.dal.cs.csci3130.fastmoney">
 
     <application
         android:allowBackup="true"
@@ -9,31 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.MainActivity">
+        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.RegistrationActivity">
+        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.RegistrationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.ViewUser">
+        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.ViewUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.JobsActivity">
+        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.JobsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.EmployeesActivity">
+        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.EmployeesActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />

@@ -6,10 +6,39 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/queryTests/UserQueryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests/UserTest.java" afterDir="false" />
+    <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="Moves old tests to legacy test folder. Changes file structure of new test folder.">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/fastmoney/examples/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/insertTests/AddEmployeeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/fastmoney/examples/insertTests/AddEmployeeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/insertTests/AddJobTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/fastmoney/examples/insertTests/AddJobTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/queryTests/EmployeeQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/fastmoney/examples/queryTests/EmployeeQueryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/queryTests/JobQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/fastmoney/examples/queryTests/JobQueryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/queryTests/UserQueryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/fastmoney/examples/queryTests/UserQueryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/models/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Employer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/models/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Job.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/models/JobType.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/JobType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/models/Posting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Posting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/query/SearchQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/query/SearchQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/registration/RegistrationValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/registration/RegistrationValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/EmployeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/EmployeesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/EmployeesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/JobView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/JobView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/JobsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/JobsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/LandingPageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/LandingPageActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/RegistrationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/RegistrationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/ViewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/views/ViewUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/backEndTests/registrationTests/RegistrationValidationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/legacy/backEndTests/registrationTests/RegistrationValidationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/examples/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/legacy/examples/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests/EmployeeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/legacy/modelTests/EmployeeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests/JobTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/legacy/modelTests/JobTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/legacy/modelTests/UserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +68,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Bryce MacInnis &lt;bryce.macinnis@dal.ca&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1j4sQ8zKrxxvUNXQA8CuWzzCu6C" />
@@ -52,7 +86,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests" />
-    <property name="memory.settings.postsync.last.time.stamp" value="1603074781380" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1606446283302" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.-669492518">
@@ -150,6 +184,10 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Moves old tests to legacy test folder. Changes file structure of new test folder." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moves old tests to legacy test folder. Changes file structure of new test folder." />
+  </component>
   <component name="WindowStateProjectService">
     <state x="289" y="210" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603074739539">
       <screen x="0" y="0" width="1280" height="800" />
@@ -175,13 +213,22 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800@0.0.1280.800" timestamp="1604893125639" />
+    <state x="164" y="2" key="CommitChangelistDialog2" timestamp="1606446974683">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="164" y="2" key="CommitChangelistDialog2/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606446974683" />
+    <state x="127" y="67" key="DiffContextDialog" timestamp="1606446772866">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="127" y="67" key="DiffContextDialog/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606446772866" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604803639446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/-1680.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1604803639446" />
-    <state x="509" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1604536958033">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="255" y="299" key="com.intellij.ide.util.TipDialog" timestamp="1606446252996">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state x="255" y="299" key="com.intellij.ide.util.TipDialog/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606446252996" />
     <state x="509" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604536958033" />
   </component>
 </project>
