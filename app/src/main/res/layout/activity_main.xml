@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
 
+
     <TextView
         android:id="@+id/password_label"
         android:layout_width="wrap_content"
@@ -26,6 +27,8 @@
         android:text="@string/register_username_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username_field_layout"
