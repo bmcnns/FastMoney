@@ -7,23 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/unitTests/LogIn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/unitTests/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/unitTests/Rating.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/unitTests/Registration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/unitTests/ViewJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/fastmoney/examples/espressoTests/AddJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/fastmoney/examples/integrationTests/AddJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/fastmoney/unitTests/AddJob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/fastmoney/models/Job.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +35,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="valueResourceFile" />
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -246,10 +235,11 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="228" y="162" key="AndroidCreateResourceFileDialog/0.0.1280.800@0.0.1280.800" timestamp="1604893125639" />
-    <state x="164" y="2" key="CommitChangelistDialog2" timestamp="1606448929726">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state x="164" y="23" width="1072" height="777" key="CommitChangelistDialog2" timestamp="1606499676126">
+      <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="164" y="2" key="CommitChangelistDialog2/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606448929726" />
+    <state x="164" y="23" width="1072" height="777" key="CommitChangelistDialog2/0.23.1280.777/-1080.-1097.1080.1897@0.23.1280.777" timestamp="1606499676126" />
     <state x="127" y="67" key="DiffContextDialog" timestamp="1606446772866">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
@@ -283,5 +273,9 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="420" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.800/-1080.-1120.1080.1920@0.0.1280.800" timestamp="1606447025277" />
+    <state x="305" y="62" width="670" height="676" key="search.everywhere.popup" timestamp="1606498752659">
+      <screen x="0" y="23" width="1280" height="777" />
+    </state>
+    <state x="305" y="62" width="670" height="676" key="search.everywhere.popup/0.23.1280.777/-1080.-1097.1080.1897@0.23.1280.777" timestamp="1606498752659" />
   </component>
 </project>
