@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="0dp"
-            android:text="Not Bryce? Sign out"
+            android:text="Not Bryce? Sign out."
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#0376DA" />
@@ -38,6 +38,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginBottom="5dp"
             android:background="@android:drawable/dialog_holo_light_frame"
+            android:onClick="redirectToProfilePage"
             android:paddingVertical="30dp"
             android:shadowRadius="3"
             android:text="Your profile"
@@ -50,6 +51,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="5dp"
             android:background="@android:drawable/dialog_holo_light_frame"
+            android:onClick="redirectToWorkPage"
             android:paddingVertical="30dp"
             android:text="Your work" />
 
@@ -60,6 +62,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="5dp"
             android:background="@android:drawable/dialog_holo_light_frame"
+            android:onClick="redirectToJobPage"
             android:paddingVertical="30dp"
             android:text="Your jobs" />
 
@@ -70,6 +73,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="5dp"
             android:background="@android:drawable/dialog_holo_light_frame"
+            android:onClick="redirectToPostJobPage"
             android:paddingVertical="30dp"
             android:text="Post a job" />
 
@@ -80,6 +84,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="5dp"
             android:background="@android:drawable/dialog_holo_light_frame"
+            android:onClick="redirectToFindJobPage"
             android:paddingVertical="30dp"
             android:text="Find a job" />
 
