@@ -35,7 +35,7 @@ public class JobsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jobs);
 
-        Job job = new Job(
+        /*Job job = new Job(
                 "Sample Job #1",
                 "Sample Employer #1",
                 "Halifax, Nova Scotia",
@@ -50,6 +50,7 @@ public class JobsActivity extends AppCompatActivity {
                 20.00,
                 JobType.PARTTIME
         );
+        */
 
         //addJobToDatabase(job);
         //addJobToDatabase(job2);
@@ -57,6 +58,7 @@ public class JobsActivity extends AppCompatActivity {
     }
 
     public void addJobToDatabase(Job job) {
+        /*
         Map<String, Object> payload = new HashMap<String, Object>();
         payload.put("title", job.getTitle());
         payload.put("employer", job.getEmployer());
@@ -67,9 +69,11 @@ public class JobsActivity extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String randomJobId = UUID.randomUUID().toString();
         db.collection("jobs").document(randomJobId).set(payload);
+         */
     }
 
     public List<Job> displayJobsFromDatabase() {
+        /*
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("jobs").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -94,11 +98,12 @@ public class JobsActivity extends AppCompatActivity {
                 }
             }
         });
-
+*/
         return null;
     }
 
     public void displayJob(Job job) {
+        /*
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = layoutInflater.inflate(R.layout.activity_job, null);
 
@@ -120,5 +125,6 @@ public class JobsActivity extends AppCompatActivity {
 
         ViewGroup parent = (ViewGroup) findViewById(R.id.jobsRoot);
         parent.addView(v);
+         */
     }
 }

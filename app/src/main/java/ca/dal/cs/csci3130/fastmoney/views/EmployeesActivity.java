@@ -35,18 +35,6 @@ public class EmployeesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employees);
 
-        Employee employee = new Employee(
-                "Bryce",
-                "MacInnis",
-                "Hey my name is Bryce MacInnis. I am a top notch programmer and I eat cereal for supper."
-        );
-
-        Employee employee2 = new Employee(
-                "John",
-                "O'Reilly",
-                "Hey my name is John O'Reilly. I am a bottom notch programmer and I eat cereal for breakfast."
-        );
-
         //addEmployeeToDatabase(employee);
         //addEmployeeToDatabase(employee2);
 
@@ -55,9 +43,9 @@ public class EmployeesActivity extends AppCompatActivity {
 
     public void addEmployeeToDatabase(Employee employee) {
         Map<String, Object> payload = new HashMap<String, Object>();
-        payload.put("firstName", employee.getFirstName());
+        /*payload.put("firstName", employee.getFirstName());
         payload.put("lastName", employee.getLastName());
-        payload.put("bio", employee.getBio());
+        payload.put("bio", employee.getBio());*/
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String randomEmployeeId = UUID.randomUUID().toString();
@@ -65,6 +53,7 @@ public class EmployeesActivity extends AppCompatActivity {
     }
 
     public List<Job> displayEmployeesFromDatabase() {
+        /*
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("employees").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -86,11 +75,12 @@ public class EmployeesActivity extends AppCompatActivity {
                 }
             }
         });
-
+*/
         return null;
     }
 
     public void displayEmployee(Employee employee) {
+        /*
         LayoutInflater layoutInflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = layoutInflater.inflate(R.layout.activity_employee, null);
 
@@ -103,5 +93,6 @@ public class EmployeesActivity extends AppCompatActivity {
 
         ViewGroup parent = (ViewGroup) findViewById(R.id.employeesRoot);
         parent.addView(v);
+        */
     }
 }

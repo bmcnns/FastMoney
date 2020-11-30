@@ -9,12 +9,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.dal.cs.csci3130.fastmoney.R;
-import ca.dal.cs.csci3130.fastmoney.views.MainActivity;
+import ca.dal.cs.csci3130.fastmoney.views.AddJobActivity;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withHint;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
@@ -23,66 +26,88 @@ import static org.junit.Assert.*;
 public class AddJob {
 
     @Rule
-    public ActivityScenarioRule<MainActivity> myRule = new ActivityScenarioRule<>(MainActivity.class);
+    public ActivityScenarioRule<AddJobActivity> myRule = new ActivityScenarioRule<>(AddJobActivity.class);
 
     @Test
     public void showsJobTitleInput() {
-        assertFalse(!false);
+        onView(withText("Job Title")).check(matches(isDisplayed()));
+        onView(withHint("John")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsPayRateInput() {
-        assertFalse(!false);
+        onView(withText("Pay Rate")).check(matches(isDisplayed()));
+        onView(withHint("$0/hr")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsJobDescriptionInput() {
-        assertFalse(!false);
+        onView(withText("Job Description")).check(matches(isDisplayed()));
+        onView(withHint("Raking and disposing of leaves...")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsImagesInput() {
-       assertFalse(!false);
+        onView(withText("Images")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsPostButton() {
-        assertFalse(!false);
+        onView(withText("Post")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenTitleIsNotAdded() {
-        assertFalse(!false);
+        onView(withText("Post")).perform(click());
+        onView(withText("Title can not be blank")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenTitleIsOverMaxLength() {
-        assertFalse(!false);
+        String absurdlyLargeString = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+        onView(withText("John")).perform(typeText(absurdlyLargeString));
+        onView(withText("Post")).perform(click());
+        onView(withText("Title must be fewer characters")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenPayRateIsNotAdded() {
-        assertFalse(!false);
+        onView(withText("$0/hr")).perform(clearText());
+        onView(withText("Post")).perform(click());
+        onView(withText("Pay rate can not be blank")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenPayRateIsLowerThanMinimumValue() {
-        assertFalse(!false);
+        String minimumPayRate = "$1/hr";
+        onView(withText("$0/hr")).perform(clearText());
+        onView(withText("Post")).perform(click());
+        onView(withText("Pay rate must be more than minimum value.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenPayRateIsLowerThanMaximumValue() {
-        assertFalse(!false);
+        String maximumPayRate = "$1000/hr";
+        onView(withText("$0/hr")).perform(clearText());
+        onView(withText("$0/hr")).perform(typeText(maximumPayRate));
+        onView(withText("Post")).perform(click());
+        onView(withText("Pay rate must be less than the maximum value.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenDescriptionIsNotAdded() {
-        assertFalse(!false);
+        onView(withText("Raking and disposing of leaves...")).perform(clearText());
+        onView(withText("Post")).perform(click());
+        onView(withText("Description must be added.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenDescriptionIsNotValidLength() {
-        assertFalse(!false);
+        String absurdlyLargeString = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        onView(withText("Raking and disposing of leaves...")).perform(clearText());
+        onView(withText("Raking and disposing of leaves...")).perform(typeText(absurdlyLargeString));
+        onView(withText("Post")).perform(click());
+        onView(withText("Description must be less than maximum length.")).check(matches(isDisplayed()));
     }
 
     @Test

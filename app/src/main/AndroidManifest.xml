@@ -33,6 +33,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.AddJobActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="ca.dal.cs.csci3130.fastmoney.views.EmployeesActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
