@@ -23,13 +23,7 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         Intent redirect;
-        if (firebaseAuth.getCurrentUser() == null) {
-            redirect = new Intent(this, RegistrationActivity.class);
-        }
-        else {
-            redirect = new Intent(this, JobsActivity.class);
-        }
-
+        redirect = new Intent(this, LandingPageActivity.class);
         startActivity(redirect);
         finish();
     }

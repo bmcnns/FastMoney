@@ -15,29 +15,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.RegistrationActivity">
+        <activity android:name=".views.ProfileActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="PROFILE" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.ViewUser">
+        <activity android:name=".views.LandingPageActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="LANDING_PAGE" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.JobsActivity">
+        <activity android:name=".views.FindJobActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="FIND_JOB" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.dal.cs.csci3130.fastmoney.views.EmployeesActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        <activity android:name=".views.PostJobActivity">
+            <intent-filter>
+                <action android:name="POST_JOB" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".views.JobActivity">
+            <intent-filter>
+                <action android:name="JOB" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".views.LogInActivity">
+            <intent-filter>
+                <action android:name="LOG_IN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".views.WorkActivity">
+            <intent-filter>
+                <action android:name="WORK" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>
