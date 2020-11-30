@@ -3,9 +3,8 @@
 /.idea
 /.gradle
 /gradle
-build.gradle
 gradle.properties
 gradle*
 *.properties
-*.gradle
+settings.gradle
 

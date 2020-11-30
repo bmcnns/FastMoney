@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">A1</string>
+    <string name="app_name">FastMoney</string>
     <!-- Strings used for registration page -->
     <string name="register_username_label">Username: </string>
     <string name="register_username_field">Enter username: </string>
