@@ -1,0 +1,10 @@
+/build
+/.DS_Store
+/.idea
+/.gradle
+/gradle
+gradle.properties
+gradle*
+*.properties
+settings.gradle
+
