@@ -2,8 +2,6 @@ package ca.dal.cs.csci3130.fastmoney.unitTests;
 
 import org.junit.Test;
 
-import ca.dal.cs.csci3130.fastmoney.models.Employee;
-import ca.dal.cs.csci3130.fastmoney.models.Employer;
 import ca.dal.cs.csci3130.fastmoney.models.Job;
 
 import static org.junit.Assert.*;

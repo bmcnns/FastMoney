@@ -6,10 +6,6 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.annotation.concurrent.ThreadSafe;
-
-import ca.dal.cs.csci3130.fastmoney.models.Employee;
-import ca.dal.cs.csci3130.fastmoney.models.Employer;
 import ca.dal.cs.csci3130.fastmoney.models.Job;
 
 import static org.junit.Assert.assertFalse;
