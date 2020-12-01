@@ -2,6 +2,7 @@ package ca.dal.cs.csci3130.fastmoney.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
