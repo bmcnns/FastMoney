@@ -44,7 +44,7 @@ public class LandingPageActivity extends AppCompatActivity {
     }
 
     public void redirectToPostJobPage(View view) {
-        Intent redirect = new Intent(this, PostJobActivity.class);
+        Intent redirect = new Intent(this, AddJobActivity.class);
         startActivity(redirect);
     }
 }
