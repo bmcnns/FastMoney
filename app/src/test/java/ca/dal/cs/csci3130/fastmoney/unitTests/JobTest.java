@@ -6,11 +6,8 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.annotation.concurrent.ThreadSafe;
-
-import ca.dal.cs.csci3130.fastmoney.models.Employee;
-import ca.dal.cs.csci3130.fastmoney.models.Employer;
 import ca.dal.cs.csci3130.fastmoney.models.Job;
+import ca.dal.cs.csci3130.fastmoney.models.User;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -20,8 +17,8 @@ public class JobTest {
     int validPayRate;
     String validDescription;
     String[] validImages;
-    Employer validEmployer;
-    Employee validEmployee;
+    User validEmployer;
+    User validEmployee;
 
     @Before
     public void setUp() {
@@ -29,8 +26,28 @@ public class JobTest {
         validPayRate = 20;
         validDescription = "Performs moon walks, covers up information about aliens.";
         validImages = new String[] { "neil.png" };
-        validEmployer = new Employer();
-        validEmployee = new Employee();
+
+        validEmployer = new User(
+                "John",
+                "Doe",
+                "john.doe@gmail.com",
+                "Halifax, NS. Canada",
+                "4724090012345678",
+                "profile.png",
+                5.0f,
+                5.0f
+        );
+
+        validEmployee = new User(
+                "Jane",
+                "Doe",
+                "john.doe@gmail.com",
+                "Halifax, NS. Canada",
+                "4724090012345678",
+                "profile.png",
+                5.0f,
+                5.0f
+        );
     }
 
     @Test
@@ -167,7 +184,7 @@ public class JobTest {
 
     @Test
     public void jobWithInvalidEmployeeIsInvalid() {
-        Employee invalidEmployee = new Employee();
+        /*Employee invalidEmployee = new Employee();
 
         Job job = new Job(
                 validTitle,
@@ -179,11 +196,13 @@ public class JobTest {
         );
 
         assertFalse("Job with an invalid employee is invalid.", Job.isValid(job));
+         */
+        assertTrue(false);
     }
 
     @Test
     public void jobWithInvalidEmployerIsInvalid() {
-        Employer invalidEmployer = new Employer();
+        /* Employer invalidEmployer = new Employer();
 
         Job job = new Job(
                 validTitle,
@@ -195,6 +214,8 @@ public class JobTest {
         );
 
         assertFalse("Job with an invalid employer is invalid.", Job.isValid(job));
+         */
+        assertTrue(false);
     }
 
     @Test
