@@ -74,6 +74,35 @@ public class JobTest {
     }
 
     @Test
+    public void jobWithNoDescriptionIsInvalid() {
+        Job job = new Job(
+                validTitle,
+                validPayRate,
+                "",
+                validImages,
+                validEmployer,
+                validEmployee
+        );
+        assertFalse("Job with no description is invalid.", Job.isValid(job));
+    }
+
+    @Test
+    public void jobWithDescriptionMoreThanMaxCharactersIsInvalid() {
+        String invalidDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+        Job job = new Job(
+                validTitle,
+                validPayRate,
+                invalidDescription,
+                validImages,
+                validEmployer,
+                validEmployee
+        );
+
+        assertFalse("Job with too long of description is invalid.", Job.isValid(job));
+    }
+
+    @Test
     public void jobWithZeroPayRateIsInvalid() {
         Job job = new Job(
                 validTitle,
