@@ -14,8 +14,8 @@ public class Job {
     String description;
     String[] images;
     Date postedDate;
-    Employer employer;
-    Employee employee;
+    User employer;
+    User employee;
 
     public String getTitle() {
         return title;
@@ -57,19 +57,19 @@ public class Job {
         this.postedDate = postedDate;
     }
 
-    public Employer getEmployer() {
+    public User getEmployer() {
         return employer;
     }
 
-    public void setEmployer(Employer employer) {
+    public void setEmployer(User employer) {
         this.employer = employer;
     }
 
-    public Employee getEmployee() {
+    public User getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Employee employee) {
+    public void setEmployee(User employee) {
         this.employee = employee;
     }
 
@@ -77,8 +77,8 @@ public class Job {
                int payRate,
                String description,
                String[] images,
-               Employer employer,
-               Employee employee,
+               User employer,
+               User employee,
                Date postedDate) {
         this.title = title;
         this.payRate = payRate;
@@ -93,8 +93,8 @@ public class Job {
                int payRate,
                String description,
                String[] images,
-               Employer employer,
-               Employee employee) {
+               User employer,
+               User employee) {
         this(title, payRate, description, images, employer, employee, new Date());
     }
 
@@ -135,11 +135,11 @@ public class Job {
     }
 
     private boolean isEmployerValid() {
-        return getEmployer().isValid();
+        return User.isValid(getEmployer());
     }
 
     private boolean isEmployeeValid() {
-        return getEmployee().isValid();
+        return User.isValid(getEmployee());
     }
 
     private boolean isPostedDateValid() {

@@ -9,18 +9,18 @@ import static org.junit.Assert.*;
 public class AddJob {
     @Test
     public void validJobTest() {
-        Employer employer = new Employer() {};
-        Employee employee = new Employee() {};
+        //Employer employer = new Employer() {};
+        //Employee employee = new Employee() {};
 
-        Job job = new Job(
+        /*Job job = new Job(
                 "Job Title",
                 20,
                 "Raking and disposing of leaves...",
                 new String[] {"image1.jpg", "image2.jpg", "img3.jpg"},
-                employer,
-                employee
-        );
+                //employer,
+                //employee
+        );*/
 
-        assertTrue(Job.isValid(job));
+        assertTrue(false);
     }
 }
