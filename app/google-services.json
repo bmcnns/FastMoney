@@ -1,42 +1,63 @@
 {
   "project_info": {
-    "project_number": "1045384998989",
-    "firebase_url": "https://se-fastmoney.firebaseio.com",
-    "project_id": "se-fastmoney",
-    "storage_bucket": "se-fastmoney.appspot.com"
+    "project_number": "574565345815",
+    "firebase_url": "https://csci3130fastmoney.firebaseio.com",
+    "project_id": "csci3130fastmoney",
+    "storage_bucket": "csci3130fastmoney.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1045384998989:android:d41669cbdfaa7306f5ac04",
+        "mobilesdk_app_id": "1:574565345815:android:5bbf7c1e3b7a86b2388a52",
         "android_client_info": {
           "package_name": "ca.dal.cs.csci3130.a1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1045384998989-lrntacll6e6ivo19vkct9vrtgho9qlc3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "ca.dal.cs.csci3130.a1",
-            "certificate_hash": "5dfbca0660045b7958de2ffc53b9cd3a6c8c5ddb"
-          }
-        },
-        {
-          "client_id": "1045384998989-9gav40sequuudq9lblu8mlp26c86e1lf.apps.googleusercontent.com",
+          "client_id": "574565345815-3gjjaprqbsc255k5sku91fomhc0d1vqo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBqvjCJky8Zq7J0z0Tga0jfbsnKxk3vn2c"
+          "current_key": "AIzaSyCwJABlH1wpzkgv4j38KPeGV4yInOLt1y8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1045384998989-9gav40sequuudq9lblu8mlp26c86e1lf.apps.googleusercontent.com",
+              "client_id": "574565345815-3gjjaprqbsc255k5sku91fomhc0d1vqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574565345815:android:a5af671ac43e013a388a52",
+        "android_client_info": {
+          "package_name": "ca.dal.cs.csci3130.project.views"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "574565345815-3gjjaprqbsc255k5sku91fomhc0d1vqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwJABlH1wpzkgv4j38KPeGV4yInOLt1y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "574565345815-3gjjaprqbsc255k5sku91fomhc0d1vqo.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
