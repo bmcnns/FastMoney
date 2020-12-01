@@ -22,7 +22,6 @@ public class JobTest {
     String[] validImages;
     Employer validEmployer;
     Employee validEmployee;
-    Job validJob;
 
     @Before
     public void setUp() {
