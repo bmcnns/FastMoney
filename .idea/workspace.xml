@@ -9,18 +9,16 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="- Rewrite Registration Page (firebase authentication and firebase firestone)&#10;- Add Logout button on main page">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/LoginActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/Name-Tag.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/email-black-18dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/lock-black-18dp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/vpn_key-black-18dp.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+    <list default="true" id="3315fe65-c5c4-400a-9a64-0f4a9deddd97" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/RegistrationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/RegistrationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ca/dal/cs/csci3130/project/views/LoginActivity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,12 +90,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-view/Users/stevechen/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0-alpha03/a0831ff8b42b99b5084c203070690505b638b7d2/material-1.3.0-alpha03-sources.jar!/com/google/android/material/button/MaterialButton.java_SELECTED" value="MaterialButton" />
+    <property name="android-custom-view/Users/stevechen/Downloads/se-fastmoney/app/src/main/java/ca/dal/cs/csci3130/project/views/EmployeeView.java_SELECTED" value="EmployeeView" />
     <property name="android-custom-view/Users/stevechen/Downloads/se-fastmoney/app/src/main/java/ca/dal/cs/csci3130/project/views/JobView.java_SELECTED" value="JobView" />
     <property name="android-custom-view/Users/stevechen/Library/Android/sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project/modelTests" />
     <property name="memory.settings.postsync.last.time.stamp" value="1603074781380" />
     <property name="multi-representation-preview/Users/stevechen/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0-alpha03/a0831ff8b42b99b5084c203070690505b638b7d2/material-1.3.0-alpha03-sources.jar!/com/google/android/material/button/MaterialButton.java_selected" value="Custom views" />
+    <property name="multi-representation-preview/Users/stevechen/Downloads/se-fastmoney/app/src/main/java/ca/dal/cs/csci3130/project/views/EmployeeView.java_selected" value="Custom views" />
     <property name="multi-representation-preview/Users/stevechen/Downloads/se-fastmoney/app/src/main/java/ca/dal/cs/csci3130/project/views/JobView.java_selected" value="Custom views" />
     <property name="multi-representation-preview/Users/stevechen/Library/Android/sdk/sources/android-30/android/view/View.java_selected" value="Custom views" />
     <property name="project.structure.last.edited" value="Suggestions" />
@@ -110,8 +110,15 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.-669492518">
+    <key name="android.template.855483462">
+      <recent name="ca.dal.cs.csci3130.project.views" />
       <recent name="ca.dal.cs.csci3130.project" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+      <recent name="C:\Users\Seth\StudioProjects\se-fastmoney\app\src\main\res\drawable-v24" />
+      <recent name="C:\Users\Seth\StudioProjects\se-fastmoney\app\sampledata\avatar" />
+      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ca.dal.cs.csci3130.project.examples" />
@@ -123,14 +130,11 @@
       <recent name="$PROJECT_DIR$/app/src/androidTest/java/ca/dal/cs/csci3130/project/examples/insertTests" />
       <recent name="$PROJECT_DIR$/app/src/test/java/ca/dal/cs/csci3130/project" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
+    <key name="android.template.-669492518">
       <recent name="ca.dal.cs.csci3130.project" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
-      <recent name="C:\Users\Seth\StudioProjects\se-fastmoney\app\src\main\res\drawable-v24" />
-      <recent name="C:\Users\Seth\StudioProjects\se-fastmoney\app\sampledata\avatar" />
-      <recent name="$PROJECT_DIR$" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ca.dal.cs.csci3130.project" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -321,12 +325,20 @@
       <option name="project" value="LOCAL" />
       <updated>1605934822665</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- Adding meterial deisgn for registration page">
+      <created>1606496878221</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606496878221</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Rewrite Registration Page (firebase authentication and firebase firestone)&#10;- Add Logout button on main page" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Rewrite Registration Page (firebase authentication and firebase firestone)&#10;- Add Logout button on main page" />
+    <MESSAGE value="- Adding meterial deisgn for registration page" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Adding meterial deisgn for registration page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="340" y="-900" key="#PSD" timestamp="1606438396003">
@@ -354,10 +366,11 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="242" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.800@0.0.1280.800" timestamp="1604598248824" />
-    <state x="542" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604537229087">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="305" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606497292805">
+      <screen x="0" y="25" width="1440" height="818" />
     </state>
     <state x="542" y="447" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604537229087" />
+    <state x="305" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.818@0.25.1440.818" timestamp="1606497292805" />
     <state x="505" y="-797" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1606438050231">
       <screen x="-337" y="-1271" width="2304" height="1271" />
     </state>
@@ -370,10 +383,14 @@
       <screen x="-337" y="-1271" width="2304" height="1271" />
     </state>
     <state x="637" y="-854" key="AndroidCreateXmlResourceDialog/0.25.1440.818/-337.-1271.2304.1271@-337.-1271.2304.1271" timestamp="1605810615140" />
-    <state x="0" y="25" key="CommitChangelistDialog2" timestamp="1605935103370">
+    <state x="0" y="25" key="CommitChangelistDialog2" timestamp="1606762471974">
       <screen x="0" y="25" width="1440" height="818" />
     </state>
-    <state x="0" y="25" key="CommitChangelistDialog2/0.25.1440.818@0.25.1440.818" timestamp="1605935103370" />
+    <state x="0" y="25" key="CommitChangelistDialog2/0.25.1440.818@0.25.1440.818" timestamp="1606762471974" />
+    <state x="143" y="94" key="DiffContextDialog" timestamp="1606497314371">
+      <screen x="0" y="25" width="1440" height="818" />
+    </state>
+    <state x="143" y="94" key="DiffContextDialog/0.25.1440.818@0.25.1440.818" timestamp="1606497314371" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604803639446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -436,14 +453,18 @@
     </state>
     <state x="17" y="-1201" key="SettingsEditor/0.25.1440.818/-337.-1271.2304.1271@-337.-1271.2304.1271" timestamp="1606438363952" />
     <state x="221" y="70" key="SettingsEditor/0.25.1440.818/-337.-1271.2304.1271@0.25.1440.818" timestamp="1605908469663" />
-    <state x="319" y="172" key="Vcs.Push.Dialog.v2" timestamp="1605935562326">
+    <state x="319" y="172" key="Vcs.Push.Dialog.v2" timestamp="1606497320210">
       <screen x="0" y="25" width="1440" height="818" />
     </state>
-    <state x="319" y="172" key="Vcs.Push.Dialog.v2/0.25.1440.818@0.25.1440.818" timestamp="1605935562326" />
+    <state x="319" y="172" key="Vcs.Push.Dialog.v2/0.25.1440.818@0.25.1440.818" timestamp="1606497320210" />
     <state x="509" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1604536958033">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="509" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1604536958033" />
+    <state x="475" y="226" key="git4idea.merge.GitMergeDialog" timestamp="1606763562235">
+      <screen x="0" y="25" width="1440" height="818" />
+    </state>
+    <state x="475" y="226" key="git4idea.merge.GitMergeDialog/0.25.1440.818@0.25.1440.818" timestamp="1606763562235" />
     <state x="480" y="-983" width="670" height="676" key="search.everywhere.popup" timestamp="1606444261377">
       <screen x="-337" y="-1271" width="2304" height="1271" />
     </state>
