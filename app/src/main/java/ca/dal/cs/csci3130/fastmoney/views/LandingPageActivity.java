@@ -2,7 +2,6 @@ package ca.dal.cs.csci3130.fastmoney.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +11,26 @@ import com.google.firebase.auth.FirebaseAuth;
 import ca.dal.cs.csci3130.fastmoney.R;
 
 public class LandingPageActivity extends AppCompatActivity {
+
+    FirebaseAuth fAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+
+        fAuth = FirebaseAuth.getInstance();
+
+        if (fAuth.getCurrentUser() == null) {
+            startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
+            finish();
+        }
+    }
+
+    public void signOut(View view) {
+        fAuth.signOut();
+        Intent redirect = new Intent(this, RegistrationActivity.class);
+        startActivity(redirect);
     }
 
     public void redirectToWorkPage(View view) {

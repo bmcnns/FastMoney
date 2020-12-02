@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="0dp"
+            android:onClick="signOut"
             android:text="Not Bryce? Sign out."
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
