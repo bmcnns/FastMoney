@@ -34,7 +34,7 @@ public class LogIn {
     public void successfulLoginRedirects() {
         onView(withId(R.id.EmailAddress)).perform(typeText("John@gmail.com"));
         onView(withId(R.id.Password)).perform(typeText("123456"));
-        onView(withId(R.id.Password)).perform(click());
+        onView(withId(R.id.signInButton)).perform(click());
         intended(hasComponent(LandingPageActivity.class.getName()));
     }
 

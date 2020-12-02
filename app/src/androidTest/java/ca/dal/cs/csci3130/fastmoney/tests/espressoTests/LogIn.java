@@ -1,5 +1,6 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
+import android.app.Activity;
 import android.content.Context;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -61,10 +62,11 @@ public class LogIn {
     //ensure incorrect login credentials are properly handled
     @Test
     public void unsuccessfulLoginDoesNotRedirect() {
-        onView(withId(R.id.EmailAddress)).perform(typeText("Jogmail.com"));
+        onView(withId(R.id.EmailAddress)).perform(typeText("Jo@gmail.com"));
         onView(withId(R.id.Password)).perform(typeText("123456"));
-        onView(withId(R.id.Password)).perform(click());
+        onView(withId(R.id.signInButton)).perform(click());
         onView(withText("Incorrect username or password")).check(matches(isDisplayed()));
+        intended(hasComponent(LogInActivity.class.getName()));
     }
 
     //ensure proper error handling for empty sign in attempts

@@ -31,9 +31,6 @@ import ca.dal.cs.csci3130.fastmoney.R;
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener{
 
     FirebaseAuth firebaseAuth;
-    private String email="";
-    private String password="";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +60,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         return passwordBox.getText().toString();
     }
 
+    //show error messages for unsuccessful logins
     protected void setStatusMessage(String message){
         TextView statusLabel = findViewById(R.id.statusLabel);
         statusLabel.setText(message);
@@ -85,15 +83,17 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
 
     public void onClick(View view){
+        //redirects to the login page
         if(view.getId()==R.id.registerButton){
             redirectRegistrationPage();
         }
 
 
         else if(view.getId()==R.id.signInButton) {
-            email = getEmailInput();
-            password = getPasswordInput();
+            String email = getEmailInput();
+            String password = getPasswordInput();
 
+            //ensures valid login credentials before continuing
             if (checkForValidSignIn(email, password)) {
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -112,11 +112,14 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             }
         }
     }
+
+    //redirect to the registration page
     public void redirectRegistrationPage(){
         //Intent Redirect = new Intent(this, RegistrationActivity.class);
         //startActivity(Redirect);
     }
 
+    //redirects user to the main activity
     public void redirectLandingPage(){
         Intent Redirect = new Intent(this, MainActivity.class);
         startActivity(Redirect);
