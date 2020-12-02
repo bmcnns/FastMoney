@@ -1,14 +1,11 @@
 package ca.dal.cs.csci3130.fastmoney.views;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,34 +14,27 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 
 import ca.dal.cs.csci3130.fastmoney.R;
 
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener{
 
-    FirebaseAuth firebaseAuth;
-
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        firebaseAuth= FirebaseAuth.getInstance();
+        fAuth= FirebaseAuth.getInstance();
 
         //handler for button
         Button signInButton = findViewById(R.id.signInButton);
         signInButton.setOnClickListener(this);
 
-        Button registerButton = findViewById(R.id.registerButton);
+        Button registrationButton = findViewById(R.id.regButton);
         signInButton.setOnClickListener(this);
     }
 
@@ -61,7 +51,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         return passwordBox.getText().toString();
     }
 
-    //sets error message on invalid login
+    //show error messages for unsuccessful logins
     protected void setStatusMessage(String message){
         TextView statusLabel = findViewById(R.id.statusLabel);
         statusLabel.setText(message);
@@ -71,54 +61,52 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     public boolean checkForValidSignIn(String email, String password){
         //check for empty email or password
         if(email.isEmpty() || password.isEmpty()){
-            setStatusMessage("Empty username or password");
+            setStatusMessage("Empty email or password");
             return false;
         }
         //check for invalid email
         else if(!email.contains("@") || !email.contains(".")){
-            setStatusMessage("Invalid username or password");
+            setStatusMessage("Invalid email or password");
             return false;
         }
         return true;
     }
 
 
-    public void onClick(View view){
-        //redirects when register button clicked
-        if(view.getId()==R.id.registerButton){
+    public void onClick(View view) {
+        //redirects to the login page
+        if (view.getId() == R.id.regButton) {
             redirectRegistrationPage();
-        }
-
-
-        else if(view.getId()==R.id.signInButton) {
+        } else if (view.getId() == R.id.signInButton) {
             String email = getEmailInput();
             String password = getPasswordInput();
-
+            //ensures valid login credentials before continuing
             if (checkForValidSignIn(email, password)) {
-                firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d("", "signInWithEmail:success");
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            FirebaseUser user = fAuth.getCurrentUser();
                             redirectLandingPage();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w("", "signInWithEmail:failure", task.getException());
-                            setStatusMessage("Incorrect username or password");
+                            setStatusMessage("Incorrect email or password");
                         }
                     }
                 });
             }
         }
     }
+
+    //redirect to the registration page
     public void redirectRegistrationPage(){
-       // Intent Redirect = new Intent(this, RegistrationActivity.class);
-        //startActivity(Redirect);
+        Intent Redirect = new Intent(getApplicationContext(), RegistrationActivity.class);
+        startActivity(Redirect);
     }
 
+    //redirects user to the main activity
     public void redirectLandingPage(){
-        Intent Redirect = new Intent(this, MainActivity.class);
+        Intent Redirect = new Intent(getApplicationContext(), LandingPageActivity.class);
         startActivity(Redirect);
     }
 }
