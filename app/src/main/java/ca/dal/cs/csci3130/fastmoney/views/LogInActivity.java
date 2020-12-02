@@ -35,7 +35,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         signInButton.setOnClickListener(this);
 
         Button registrationButton = findViewById(R.id.regButton);
-        signInButton.setOnClickListener(this);
+        registrationButton.setOnClickListener(this);
     }
 
 
@@ -51,7 +51,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         return passwordBox.getText().toString();
     }
 
-    //show error messages for unsuccessful logins
+    //show error messages for unsuccessful log ins
     protected void setStatusMessage(String message){
         TextView statusLabel = findViewById(R.id.statusLabel);
         statusLabel.setText(message);
@@ -74,12 +74,16 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
 
     public void onClick(View view) {
-        //redirects to the login page
+        //redirects to the registration page
         if (view.getId() == R.id.regButton) {
             redirectRegistrationPage();
-        } else if (view.getId() == R.id.signInButton) {
+        }
+
+        //checks for valid sign in on button click
+        else if (view.getId() == R.id.signInButton) {
             String email = getEmailInput();
             String password = getPasswordInput();
+
             //ensures valid login credentials before continuing
             if (checkForValidSignIn(email, password)) {
                 fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -88,7 +92,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                         if (task.isSuccessful()) {
                             FirebaseUser user = fAuth.getCurrentUser();
                             redirectLandingPage();
-                        } else {
+                        }
+                        else {
                             // If sign in fails, display a message to the user.
                             setStatusMessage("Incorrect email or password");
                         }
@@ -98,15 +103,15 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    //redirect to the registration page
-    public void redirectRegistrationPage(){
-        Intent Redirect = new Intent(getApplicationContext(), RegistrationActivity.class);
+    //redirects user to the main activity
+    public void redirectLandingPage(){
+        Intent Redirect = new Intent(this, LandingPageActivity.class);
         startActivity(Redirect);
     }
 
-    //redirects user to the main activity
-    public void redirectLandingPage(){
-        Intent Redirect = new Intent(getApplicationContext(), LandingPageActivity.class);
+    //redirect to the registration page
+    public void redirectRegistrationPage(){
+        Intent Redirect = new Intent(this, RegistrationActivity.class);
         startActivity(Redirect);
     }
 }
