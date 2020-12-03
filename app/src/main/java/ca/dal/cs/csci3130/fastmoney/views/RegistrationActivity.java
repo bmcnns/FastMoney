@@ -66,53 +66,55 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 //if user is already logged in
                 if (fAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
                     finish();
                 }
 
                 //Registration with firebase authentication and store data to firebase firestone
 
-                fAuth.createUserWithEmailAndPassword(email, password).
-                        addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    String userID = fAuth.getCurrentUser().getUid();
-                                    DocumentReference documentReference = fStore.collection("users").document(userID);
-                                    Map<String, Object> user = new HashMap<>();
-                                    user.put("email", email);
-                                    user.put("password", password);
-                                    user.put("firstName", firstName);
-                                    user.put("lastName", lastName);
-                                    user.put("creditCardNum", 1);
-                                    user.put("creditCardExpire", 1);
-                                    user.put("ccv", 1);
+                if (!firstName.equals("") && !lastName.equals("")) {
+                    fAuth.createUserWithEmailAndPassword(email, password).
+                            addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        String userID = fAuth.getCurrentUser().getUid();
+                                        DocumentReference documentReference = fStore.collection("users").document(userID);
+                                        Map<String, Object> user = new HashMap<>();
+                                        user.put("email", email);
+                                        user.put("password", password);
+                                        user.put("firstName", firstName);
+                                        user.put("lastName", lastName);
+                                        user.put("creditCardNum", 1);
+                                        user.put("creditCardExpire", 1);
+                                        user.put("ccv", 1);
 
 
-                                    /** Store extra User data to firestone once successful registration to firebase authentication
-                                     * */
+                                        /** Store extra User data to firestone once successful registration to firebase authentication
+                                         * */
 
-                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                            Log.d("", "user have been registered");
-                                            Toast.makeText(RegistrationActivity.this, "Successfully registered", Toast.LENGTH_SHORT).show();
-                                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                        }
+                                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d("", "user have been registered");
+                                                Toast.makeText(RegistrationActivity.this, "Successfully registered", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
+                                            }
 
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(RegistrationActivity.this, "Error" + e, Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(RegistrationActivity.this, "Error" + e, Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
 
-                                    /* Jump to new Activity*/
-                                } else {
-                                    Toast.makeText(RegistrationActivity.this, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        /* Jump to new Activity*/
+                                    } else {
+                                        Toast.makeText(RegistrationActivity.this, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
             }
 
 
@@ -120,7 +122,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
         /* Login button to the login Page*/
-        loginBtn.setOnClickListener(new View.OnClickListener(){
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), LogInActivity.class));
