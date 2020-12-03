@@ -1,6 +1,5 @@
 package ca.dal.cs.csci3130.fastmoney.views;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +23,7 @@ import ca.dal.cs.csci3130.fastmoney.R;
 public class ProfileActivity extends AppCompatActivity {
     String username;
     String email;
-    Long ccNum;
+    String ccNum;
     boolean editing = false;
     Button editbtn;
 
@@ -67,7 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
                         Map<String, Object> data = document.getData();
                         username = (String)data.get("firstName") + " " + (String)data.get("lastName");
                         email = (String)data.get("email");
-                        ccNum = (Long)data.get("creditCardNum");
+                        ccNum = (String)data.get("creditCardNum");
                         //display user data
                         usernameLabel.setText(username);
                         emailInput.setText(email);
@@ -79,16 +78,6 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
-    }
 
-    public void DeleteCurrentUser(View view) {
-        // Realtime database
-        FirebaseAuth fAuth = FirebaseAuth.getInstance();
-        FirebaseFirestore fStore = FirebaseFirestore.getInstance();
-
-        //delete data from firestore and fireAuth
-        fStore.collection("users").document(fAuth.getUid()).delete().isSuccessful();
-        fAuth.getCurrentUser().delete().isSuccessful();
-        startActivity(new Intent(getApplicationContext(), LogInActivity.class));
     }
 }
