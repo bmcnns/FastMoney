@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/workHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Work History"
+            android:textSize="36dp"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/landingPageRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Landing Page"
+            android:textSize="16dp"
+            android:textColor="#0376DA"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/jobsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
