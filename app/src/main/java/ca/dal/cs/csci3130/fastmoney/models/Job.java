@@ -16,7 +16,15 @@ public class Job {
     Date postedDate;
     User employer;
     User employee;
+    String endDate;
 
+    public String getEndDate(){
+        return endDate;
+    }
+
+    public void setEndDate(String endDate){
+        this.endDate=endDate;
+    }
     public String getTitle() {
         return title;
     }

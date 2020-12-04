@@ -57,5 +57,10 @@
                 <action android:name="WORK" />
             </intent-filter>
         </activity>
+        <activity android:name=".views.WorkHistoryActivity">
+            <intent-filter>
+                <action android:name="WORK_HISTORY" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

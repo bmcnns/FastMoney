@@ -1,9 +1,7 @@
 package ca.dal.cs.csci3130.fastmoney.views;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
