@@ -49,14 +49,11 @@ public class WorkHistoryActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
-        //redirects to the registration page
-        if (view.getId() == R.id.landingPageRedirect) {
-            redirectLandingPage();
-        }
+
     }
 
     //redirects user to the main activity
-    public void redirectLandingPage(){
+    public void redirectLandingPage(View view){
         Intent Redirect = new Intent(this, LandingPageActivity.class);
         startActivity(Redirect);
     }
