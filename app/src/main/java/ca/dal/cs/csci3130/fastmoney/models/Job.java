@@ -14,17 +14,18 @@ public class Job {
     String description;
     String[] images;
     Date postedDate;
+    Date endDate;
     User employer;
     User employee;
-    String endDate;
 
-    public String getEndDate(){
+    public Date getEndDate(){
         return endDate;
     }
 
-    public void setEndDate(String endDate){
+    public void setEndDate(Date endDate){
         this.endDate=endDate;
     }
+
     public String getTitle() {
         return title;
     }

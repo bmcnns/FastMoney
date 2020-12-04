@@ -19,13 +19,11 @@ import ca.dal.cs.csci3130.fastmoney.R;
 public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycler.ViewHolder>{
 
     private String TAG= "RecyclerView";
-    ArrayList<String> titles= new ArrayList<>();
-    ArrayList<String> dates= new ArrayList<>();
+    ArrayList<Job> jobs= new ArrayList<>();
     //Context context;
 
-    public WorkHistoryRecycler(ArrayList<String> titles,ArrayList<String> dates, Context context){
-        this.titles=titles;
-        this.dates=dates;
+    public WorkHistoryRecycler(ArrayList<Job> jobs, Context context){
+        this.jobs=jobs;
         //this.context=context;
     }
 
@@ -54,21 +52,19 @@ public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycle
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.jobTitle.setText(titles.get(position));
+        holder.jobTitle.setText(jobs.get(position).getTitle());
 
-        holder.jobDate.setText(dates.get(position));
+        holder.jobDate.setText(jobs.get(position).getEndDate().toString());
 
-        /*holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent redirect = new Intent(this, JobActivity.class);
-                this.startActivity(redirect);
             }
-        });*/
+        });
     }
 
     @Override
     public int getItemCount() {
-        return titles.size();
+        return jobs.size();
     }
 }
