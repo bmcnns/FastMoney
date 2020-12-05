@@ -1,6 +1,5 @@
 package ca.dal.cs.csci3130.fastmoney.views;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         Intent redirect;
-        redirect = new Intent(this, LogInActivity.class);
+        redirect = new Intent(this, WorkHistoryActivity.class);
         startActivity(redirect);
         finish();
     }

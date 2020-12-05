@@ -1,44 +1,44 @@
 package ca.dal.cs.csci3130.fastmoney.models;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import ca.dal.cs.csci3130.fastmoney.R;
+import ca.dal.cs.csci3130.fastmoney.views.JobActivity;
 
-public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycler.ViewHolder>{
+public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycler.ViewHolder> {
 
     private String TAG= "RecyclerView";
     ArrayList<Job> jobs= new ArrayList<>();
-    //Context context;
+    Context context;
 
     public WorkHistoryRecycler(ArrayList<Job> jobs, Context context){
         this.jobs=jobs;
-        //this.context=context;
+        this.context=context;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ConstraintLayout constraintLayout;
-        FrameLayout frameLayout;
-        LinearLayout linearLayout;
+        ConstraintLayout parent;
         TextView jobTitle;
-        TextView jobDate;
+        TextView Employer;
 
         public ViewHolder(View view){
             super(view);
-            constraintLayout=view.findViewById(R.id.constraintLayout);
-            jobTitle=view.findViewById(R.id.jobTitle);
-            jobDate=view.findViewById(R.id.jobDate);
+            parent=view.findViewById(R.id.parent);
+            jobTitle=view.findViewById(R.id.jTitle);
+            Employer=view.findViewById(R.id.Employer);
         }
     }
 
@@ -51,14 +51,19 @@ public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycle
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position){
         holder.jobTitle.setText(jobs.get(position).getTitle());
 
-        holder.jobDate.setText(jobs.get(position).getEndDate().toString());
+        String employerName = jobs.get(position).getEmployer().getFirstName()+" "+jobs.get(position).getEmployer().getLastName();
+        holder.Employer.setText(employerName);
 
-        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
+        Log.d(TAG, "making job");
+        holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent redirect= new Intent(context, JobActivity.class);
+                redirect.putExtra("Job", (Serializable) jobs.get(position));
+                context.startActivity(redirect);
             }
         });
     }

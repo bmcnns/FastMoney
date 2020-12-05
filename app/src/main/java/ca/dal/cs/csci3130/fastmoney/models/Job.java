@@ -1,8 +1,9 @@
 package ca.dal.cs.csci3130.fastmoney.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Job {
+public class Job implements Serializable {
     static final int MINIMUM_PAY_RATE = 1;
     static final int MAXIMUM_PAY_RATE = 999;
     static final int MAXIMUM_DESCRIPTION_LENGTH = 499;
@@ -14,16 +15,34 @@ public class Job {
     String description;
     String[] images;
     Date postedDate;
-    Date endDate;
     User employer;
     User employee;
+    String employeeId;
+    String employerId;
+    String jobStatus;
 
-    public Date getEndDate(){
-        return endDate;
+    public String getJobStatus() {
+        return jobStatus;
     }
 
-    public void setEndDate(Date endDate){
-        this.endDate=endDate;
+    public void setJobStatus(String jobStatus) {
+        this.jobStatus = jobStatus;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public String getEmployerId() {
+        return employerId;
+    }
+
+    public void setEmployerId(String employerId) {
+        this.employerId = employerId;
     }
 
     public String getTitle() {
@@ -96,6 +115,7 @@ public class Job {
         this.employer = employer;
         this.employee = employee;
         this.postedDate = postedDate;
+        this.jobStatus="open";
     }
 
     public Job(String title,
