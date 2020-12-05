@@ -6,7 +6,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "ca.dal.cs.csci3130.a1"
+        applicationId "ca.dal.cs.csci3130.fastmoney"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
