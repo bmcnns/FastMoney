@@ -37,8 +37,9 @@ public class LogIn {
 
     //test that register button redirects to the Registration activity
     @Test
-    public void sendToRegistrationPage() {
+    public void sendToRegistrationPage() throws InterruptedException {
         onView(withId(R.id.regButton)).perform(click());
+        Thread.sleep(2000);
         intended(hasComponent(RegistrationActivity.class.getName()));
     }
 

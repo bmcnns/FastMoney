@@ -2,7 +2,6 @@ package ca.dal.cs.csci3130.fastmoney.models;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import ca.dal.cs.csci3130.fastmoney.views.JobActivity;
 
 public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycler.ViewHolder> {
 
-    private String TAG= "RecyclerView";
     ArrayList<Job> jobs= new ArrayList<>();
     Context context;
 
@@ -29,6 +27,7 @@ public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycle
         this.context=context;
     }
 
+    //creates an object the creates and holds the view
     public class ViewHolder extends RecyclerView.ViewHolder{
         ConstraintLayout parent;
         TextView jobTitle;
@@ -42,6 +41,7 @@ public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycle
         }
     }
 
+    //starts a holder with the desired view
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,14 +50,15 @@ public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycle
         return holder;
     }
 
+    //populates the view and creates the recycler list
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position){
         holder.jobTitle.setText(jobs.get(position).getTitle());
 
-        String employerName = jobs.get(position).getEmployer().getFirstName()+" "+jobs.get(position).getEmployer().getLastName();
-        holder.Employer.setText(employerName);
 
-        Log.d(TAG, "making job");
+        holder.Employer.setText(jobs.get(position).getEmployer().getFullName());
+
+        //Links each list entry with its job page
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +69,7 @@ public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycle
         });
     }
 
+    //returns the number of jobs in the list
     @Override
     public int getItemCount() {
         return jobs.size();

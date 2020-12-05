@@ -2,7 +2,6 @@ package ca.dal.cs.csci3130.fastmoney.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -22,16 +21,14 @@ import ca.dal.cs.csci3130.fastmoney.models.WorkHistoryRecycler;
 
 public class WorkHistoryActivity extends AppCompatActivity implements ValueEventListener {
 
-    private final String TAG= "WorkHistoryActivity";
-
     private ArrayList<Job> jobs = new ArrayList<>();
-
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_history);
 
+        //method to fill the list of jobs
         fillJobsHistory();
     }
 
@@ -44,18 +41,15 @@ public class WorkHistoryActivity extends AppCompatActivity implements ValueEvent
         jobs.add(test);
         jobs.add(test2);
 
-
         initWorkHistoryRecycler();
     }
 
+    //creates the recycler list
     public void initWorkHistoryRecycler(){
-        Log.d(TAG, "Starting workHistoryRecycler");
         RecyclerView recyclerView = findViewById(R.id.jobsList);
-        Log.d(TAG, "starting recycler");
         WorkHistoryRecycler workHistoryRecycler= new WorkHistoryRecycler(jobs, this);
         recyclerView.setAdapter(workHistoryRecycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Log.d(TAG, "ending workHistoryRecycler");
     }
 
     //redirects user to the main activity

@@ -3,6 +3,8 @@ package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(AndroidJUnit4.class)
 public class WorkHistory {
+    FirebaseFirestore fStore= FirebaseFirestore.getInstance();
 
     @Rule
     ActivityScenarioRule<WorkHistoryActivity> myRule=new ActivityScenarioRule<>(WorkHistoryActivity.class);
@@ -29,10 +32,7 @@ public class WorkHistory {
    }
 
     @Test
-    public void listShows(){onView(withId(R.id.workList)).check(matches(isDisplayed()));}
-
-    @Test
-    public void correctJobShows(){assertTrue(false);}
+    public void listShows(){onView(withId(R.id.jobsList)).check(matches(isDisplayed()));}
 
     @Test
     public void incorrectJobDoesNotShow(){assertTrue(false);}

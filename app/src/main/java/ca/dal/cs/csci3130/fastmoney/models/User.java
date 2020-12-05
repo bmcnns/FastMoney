@@ -106,6 +106,10 @@ public class User {
         this(firstName, lastName, email, "", creditCard, "", 0.0f, 0.0f);
     }
 
+    public String getFullName(){
+        return firstName+" "+lastName;
+    }
+
     private boolean isValidName(String name) {
         if (name.length() > User.MAXIMUM_NAME_LENGTH)
             return false;
