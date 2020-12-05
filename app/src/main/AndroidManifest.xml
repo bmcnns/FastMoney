@@ -27,6 +27,11 @@
                 <action android:name="PROFILE" />
             </intent-filter>
         </activity>
+        <activity android:name=".views.AddJobActivity">
+            <intent-filter>
+                <action android:name="ADD_JOB" />
+            </intent-filter>
+        </activity>
         <activity android:name=".views.LandingPageActivity">
             <intent-filter>
                 <action android:name="LANDING_PAGE" />
