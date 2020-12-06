@@ -93,6 +93,7 @@ public class ProfileActivity extends AppCompatActivity {
                     newUserData.put("firstName", String.valueOf(fNameInput.getText()));
                     newUserData.put("lastName", String.valueOf(lNameInput.getText()));
                     newUserData.put("email", String.valueOf(emailInput.getText()));
+                    email=String.valueOf(emailInput.getText());
                     docRef.update(newUserData).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -101,6 +102,7 @@ public class ProfileActivity extends AppCompatActivity {
                             cancelBtn.setVisibility(View.INVISIBLE);
                             editNameLayout.setVisibility(View.INVISIBLE);
                             usernameLabel.setVisibility(View.VISIBLE);
+                            emailInput.setFocusable(false);
                             String username = newUserData.get("firstName") + " " + newUserData.get("lastName");
                             fName = (String)newUserData.get("firstName");
                             lName = (String)newUserData.get("lastName");
@@ -130,6 +132,7 @@ public class ProfileActivity extends AppCompatActivity {
                 cancelBtn.setVisibility(View.INVISIBLE);
                 editNameLayout.setVisibility(View.INVISIBLE);
                 usernameLabel.setVisibility(View.VISIBLE);
+                emailInput.setFocusable(false);
                 fNameInput.setText(fName);
                 lNameInput.setText(lName);
             }
