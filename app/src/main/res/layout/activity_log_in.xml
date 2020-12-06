@@ -44,7 +44,7 @@
         android:layout_marginTop="32dp"
         android:hint="Email"
         app:counterEnabled="true"
-        app:counterMaxLength="20"
+        app:counterMaxLength="@integer/emailMaxLength"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -53,6 +53,7 @@
             android:id="@+id/EmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength="@integer/emailMaxLength"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,18 +64,20 @@
         android:layout_gravity="center"
         android:hint="Password"
         app:counterEnabled="true"
-        app:counterMaxLength="20"
+        app:counterMaxLength="@integer/passwordMaxlength"
         app:endIconMode="password_toggle"
         app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_field_layout">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:maxLength="@integer/passwordMaxlength" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
