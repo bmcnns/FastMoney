@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/userInfo"
@@ -59,7 +60,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/usernameTxtView" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/editBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,10 +82,10 @@
                     android:layout_marginRight="8dp"
                     android:text="Cancel"
                     android:textColor="@android:color/darker_gray"
+                    android:visibility="invisible"
                     app:backgroundTint="@android:color/white"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editBtn"
-                    android:visibility="invisible" />
+                    app:layout_constraintTop_toBottomOf="@+id/editBtn" />
 
                 <LinearLayout
                     android:id="@+id/editNameLayout"
@@ -160,40 +161,40 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
 
                     <ImageView
                         android:id="@+id/star2ImgView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
 
                     <ImageView
                         android:id="@+id/star3ImgView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
 
                     <ImageView
                         android:id="@+id/star4ImgView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
 
                     <ImageView
                         android:id="@+id/star5ImgView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
                 </LinearLayout>
 
                 <TextView
@@ -227,40 +228,40 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
 
                     <ImageView
                         android:id="@+id/star2ImgView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
 
                     <ImageView
                         android:id="@+id/star3ImgView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
 
                     <ImageView
                         android:id="@+id/star4ImgView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
 
                     <ImageView
                         android:id="@+id/star5ImgView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/btn_star_big_on"
-                        android:visibility="invisible" />
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/btn_star_big_on" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -276,33 +277,6 @@
                 android:background="@drawable/border">
 
                 <TextView
-                    android:id="@+id/creditCardTitleTxtView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Credit Card"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/creditCardInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginRight="24dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="**** **** **** ****"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/creditCardTitleTxtView" />
-
-                <TextView
                     android:id="@+id/emailTitleTxtView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -311,7 +285,7 @@
                     android:layout_marginTop="16dp"
                     android:text="Email"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/creditCardInput" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/emailInput"
@@ -325,7 +299,7 @@
                     android:layout_marginBottom="16dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="test@test.com"
+                    android:text="defaultTest@test.com"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -334,7 +308,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/signOutBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -345,7 +319,7 @@
                 android:layout_marginRight="20dp"
                 android:text="Sign Out" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/deleteAccountBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -356,6 +330,16 @@
                 android:text="Delete Account"
                 app:backgroundTint="@color/colorDanger" />
         </LinearLayout>
+
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

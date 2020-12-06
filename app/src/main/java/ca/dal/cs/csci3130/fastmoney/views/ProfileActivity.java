@@ -53,11 +53,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         final TextView usernameLabel = (TextView)findViewById(R.id.usernameTxtView);
         final TextView locationLabel = (TextView)findViewById(R.id.userLocationTxtView);
-        final EditText ccInput = (EditText)findViewById(R.id.creditCardInput);
         final EditText emailInput = (EditText)findViewById(R.id.emailInput);
         final EditText fNameInput = (EditText)findViewById(R.id.fNameInput);
         final EditText lNameInput = (EditText)findViewById(R.id.lNameInput);
-        ccInput.setFocusable(false);
         emailInput.setFocusable(false);
 
         editNameLayout = (LinearLayout)findViewById(R.id.editNameLayout);
@@ -66,18 +64,19 @@ public class ProfileActivity extends AppCompatActivity {
         signOutBtn = (Button)findViewById(R.id.signOutBtn);
         deleteAccBtn = (Button)findViewById(R.id.deleteAccountBtn);
 
-        /*
         deleteAccBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 docRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        db.collection("users").document(fAuth.getUid()).delete();
+                        fAuth.getCurrentUser().delete();
                         signOut();
                     }
                 });
             }
-        });**/
+        });
 
         signOutBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -94,7 +93,7 @@ public class ProfileActivity extends AppCompatActivity {
                     newUserData.put("firstName", String.valueOf(fNameInput.getText()));
                     newUserData.put("lastName", String.valueOf(lNameInput.getText()));
                     newUserData.put("email", String.valueOf(emailInput.getText()));
-                    newUserData.put("creditCardNum", Long.parseLong(String.valueOf(ccInput.getText())));
+                    email=String.valueOf(emailInput.getText());
                     docRef.update(newUserData).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -103,16 +102,14 @@ public class ProfileActivity extends AppCompatActivity {
                             cancelBtn.setVisibility(View.INVISIBLE);
                             editNameLayout.setVisibility(View.INVISIBLE);
                             usernameLabel.setVisibility(View.VISIBLE);
+                            emailInput.setFocusable(false);
                             String username = newUserData.get("firstName") + " " + newUserData.get("lastName");
                             fName = (String)newUserData.get("firstName");
                             lName = (String)newUserData.get("lastName");
-                            ccNum = (Long)newUserData.get("creditCardNum");
-                            email = (String)newUserData.get("email");
                             usernameLabel.setText(username);
                             fNameInput.setText(fName);
                             lNameInput.setText(lName);
                             emailInput.setText(email);
-                            ccInput.setText("**** **** **** ****");
                         }
                     });
                 } else {
@@ -121,9 +118,8 @@ public class ProfileActivity extends AppCompatActivity {
                     usernameLabel.setVisibility(View.INVISIBLE);
                     cancelBtn.setVisibility(View.VISIBLE);
                     editNameLayout.setVisibility(View.VISIBLE);
-                    ccInput.setFocusable(true);
+                    emailInput.setFocusableInTouchMode(true);
                     emailInput.setFocusable(true);
-                    ccInput.setText(Long.toString(ccNum));
                 }
             }
         });
@@ -136,9 +132,9 @@ public class ProfileActivity extends AppCompatActivity {
                 cancelBtn.setVisibility(View.INVISIBLE);
                 editNameLayout.setVisibility(View.INVISIBLE);
                 usernameLabel.setVisibility(View.VISIBLE);
+                emailInput.setFocusable(false);
                 fNameInput.setText(fName);
                 lNameInput.setText(lName);
-                ccInput.setText("**** **** **** ****");
             }
         });
 
