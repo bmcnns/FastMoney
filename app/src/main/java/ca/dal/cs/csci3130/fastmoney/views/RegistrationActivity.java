@@ -63,6 +63,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 final String password = passwordField.getText().toString();
                 final String firstName = firstNameField.getText().toString();
                 final String lastName = lastNameField.getText().toString();
+                final double employerRating = 0;
+                final int employerRatingCount=0;
+                final int employeeRatingCount=0;
+                final double employeeRating=0;
+
 
                 //Registration with firebase authentication and store data to firebase firestone
 
@@ -79,6 +84,12 @@ public class RegistrationActivity extends AppCompatActivity {
                                         user.put("password", password);
                                         user.put("firstName", firstName);
                                         user.put("lastName", lastName);
+                                        user.put("employerRating",employerRating);
+                                        user.put("employerRatingCount",employerRatingCount);
+                                        user.put("employeeRating",employeeRating);
+                                        user.put("employeeRatingCount",employeeRatingCount);
+
+
 
 
                                         /** Store extra User data to firestone once successful registration to firebase authentication
