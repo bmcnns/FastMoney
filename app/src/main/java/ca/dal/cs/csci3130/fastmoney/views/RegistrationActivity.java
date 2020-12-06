@@ -45,6 +45,13 @@ public class RegistrationActivity extends AppCompatActivity {
         final TextInputEditText firstNameField = this.findViewById(R.id.first_name_field);
         final TextInputEditText lastNameField = this.findViewById(R.id.last_name_field);
 
+
+        //if user is already logged in
+        if (fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
+            finish();
+        }
+
         /**
          * Creates a user from the information given in the registration form.
          */
@@ -56,12 +63,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 final String password = passwordField.getText().toString();
                 final String firstName = firstNameField.getText().toString();
                 final String lastName = lastNameField.getText().toString();
+                final double employerRating = 0;
+                final int employerRatingCount=0;
+                final int employeeRatingCount=0;
+                final double employeeRating=0;
 
-                //if user is already logged in
-                if (fAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
-                    finish();
-                }
 
                 //Registration with firebase authentication and store data to firebase firestone
 
@@ -78,6 +84,12 @@ public class RegistrationActivity extends AppCompatActivity {
                                         user.put("password", password);
                                         user.put("firstName", firstName);
                                         user.put("lastName", lastName);
+                                        user.put("employerRating",employerRating);
+                                        user.put("employerRatingCount",employerRatingCount);
+                                        user.put("employeeRating",employeeRating);
+                                        user.put("employeeRatingCount",employeeRatingCount);
+
+
 
 
                                         /** Store extra User data to firestone once successful registration to firebase authentication
@@ -104,6 +116,8 @@ public class RegistrationActivity extends AppCompatActivity {
                                     }
                                 }
                             });
+                }else{
+                    Toast.makeText(RegistrationActivity.this, "Error - First name or Last name can not be empty", Toast.LENGTH_SHORT).show();
                 }
             }
 

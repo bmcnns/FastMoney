@@ -29,10 +29,11 @@ public class ProfileActivity extends AppCompatActivity {
     String fName;
     String lName;
     String email;
-    long ccNum;
     String location;
-    long employeeRating;
-    long employerRating;
+    double employeeRating;
+    double employerRating;
+    long employeeRatingCount;
+    long employerRatingCount;
     boolean editing = false;
     Button editbtn;
     Button cancelBtn;
@@ -149,10 +150,12 @@ public class ProfileActivity extends AppCompatActivity {
                         lName = (String)data.get("lastName");
                         String username = fName + " " + lName;
                         email = (String)data.get("email");
-                        ccNum = (long)data.get("creditCardNum");
                         location = (String)data.get("location");
-                        employeeRating = (long)data.get("employeeRating");
-                        employerRating = (long)data.get("employerRating");
+                        employeeRating = (double)data.get("employeeRating");
+                        employeeRatingCount = (long)data.get("employeeRatingCount");
+                        employerRatingCount = (long)data.get("employeeRatingCount");
+                        employerRating = (double)data.get("employerRating");
+
                         //display user data
                         usernameLabel.setText(username);
                         fNameInput.setText(fName);
@@ -160,13 +163,24 @@ public class ProfileActivity extends AppCompatActivity {
                         locationLabel.setText(location);
                         emailInput.setText(email);
 
+                        //Show not available when no rating
+                        if(employeeRatingCount==0){
+                            TextView title = findViewById(R.id.textView5);
+                            title.setText("No Employer Rating is available");
+                        }
+                        if(employerRatingCount==0){
+                            TextView title = findViewById(R.id.employerRatingTitleTxtView);
+                            title.setText("No Employer Rating is available");
+                        }
+
+
                         LinearLayout employeeRatingLayout = (LinearLayout)findViewById(R.id.employeeStars);
-                        for(int i = 0; i < employeeRating; i++){
+                        for(int i = 0; i < (int)employeeRating; i++){
                             ImageView star = (ImageView)employeeRatingLayout.getChildAt(i);
                             star.setVisibility(View.VISIBLE);
                         }
                         LinearLayout employerRatingLayout = (LinearLayout)findViewById(R.id.employerStars);
-                        for(int i = 0; i < employerRating; i++){
+                        for(int i = 0; i < (int)employerRating; i++){
                             ImageView star = (ImageView)employerRatingLayout.getChildAt(i);
                             star.setVisibility(View.VISIBLE);
                         }

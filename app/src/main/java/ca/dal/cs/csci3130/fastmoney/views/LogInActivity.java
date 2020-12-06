@@ -36,6 +36,12 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
         Button registrationButton = findViewById(R.id.regButton);
         registrationButton.setOnClickListener(this);
+
+        //if user is already logged in
+        if (fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
+            finish();
+        }
     }
 
 
