@@ -1,4 +1,4 @@
-package ca.dal.cs.csci3130.fastmoney.views;
+package ca.dal.cs.csci3130.fastmoney.fragments;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,17 +34,36 @@ import ca.dal.cs.csci3130.fastmoney.models.User;
 import ca.dal.cs.csci3130.fastmoney.views.FindJobActivity;
 import ca.dal.cs.csci3130.fastmoney.views.JobActivity;
 
-public class JobActivity extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link JobCard#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class JobCard extends Fragment implements View.OnClickListener {
     FirebaseFirestore firebaseFirestore;
     private String jobId;
+
+    public JobCard() {
+        // Required empty public constructor
+    }
+
+    public static JobCard newInstance(String jobId) {
+
+        JobCard fragment = new JobCard();
+        Bundle args = new Bundle();
+        args.putString("jobId", jobId);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.activity_job);
         firebaseFirestore = FirebaseFirestore.getInstance();
+        if (getArguments() != null) {
+            jobId = getArguments().getString("jobId");
+        }
 
-        jobId = getIntent().getExtras().get("jobId").toString();
         displayInformation();
     }
 
@@ -75,12 +93,34 @@ public class JobActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                         } else {
                             Job job = getJobFromData(task.getResult().getData());
-                            ((TextView) findViewById(R.id.jobDetail_title)).setText(job.getTitle());
-                            ((TextView) findViewById(R.id.jobDetail_details)).setText("$" + job.getPayRate() + "/hr | " + "0 kms away.");
-                            ((TextView) findViewById(R.id.jobDetail_description)).setText(job.getDescription());
-                            ((TextView) findViewById(R.id.jobDetail_postedDate)).setText(job.getPostedDate().toString());
+                            ((TextView) getView().findViewById(R.id.jobCard_title)).setText(job.getTitle());
+                            ((TextView) getView().findViewById(R.id.jobCard_payRate)).setText("$" + job.getPayRate() + "$/hr");
+                            ((TextView) getView().findViewById(R.id.jobCard_distance)).setText("left undefined");
+                            ((TextView) getView().findViewById(R.id.jobCard_time)).setText("left undefined");
                         }
                     }
                 });
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_job_card, container, false);
+
+        MaterialButton button = v.findViewById(R.id.jobCard_viewJobButton);
+        button.setOnClickListener(this);
+
+        // Inflate the layout for this fragment
+        return v;
+    }
+
+    public void viewJobOverview(View view) {
+        Intent redirect = new Intent(getView().getContext(), JobActivity.class);
+        redirect.putExtra("jobId", jobId);
+        startActivity(redirect);
+    }
+
+    public void onClick(View view) {
+        viewJobOverview(view);
     }
 }

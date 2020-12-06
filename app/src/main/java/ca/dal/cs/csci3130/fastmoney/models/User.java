@@ -133,7 +133,7 @@ public class User {
     }
 
     private boolean hasValidLocation() {
-        return false;
+        return true;
     }
 
     private boolean hasValidCreditCard() {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.dal.cs.csci3130.fastmoney">
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -42,11 +42,6 @@
                 <action android:name="FIND_JOB" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.PostJobActivity">
-            <intent-filter>
-                <action android:name="POST_JOB" />
-            </intent-filter>
-        </activity>
         <activity android:name=".views.JobActivity">
             <intent-filter>
                 <action android:name="JOB" />
@@ -60,6 +55,11 @@
         <activity android:name=".views.WorkActivity">
             <intent-filter>
                 <action android:name="WORK" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".views.HireActivity">
+            <intent-filter>
+                <action android:name="HIRE" />
             </intent-filter>
         </activity>
         <activity android:name=".views.WorkHistoryActivity">

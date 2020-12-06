@@ -44,10 +44,6 @@ public class RegistrationActivity extends AppCompatActivity {
         final TextInputEditText passwordField = this.findViewById(R.id.password_field);
         final TextInputEditText firstNameField = this.findViewById(R.id.first_name_field);
         final TextInputEditText lastNameField = this.findViewById(R.id.last_name_field);
-//        final EditText creditCardNumField = this.findViewById(R.id.credit_card_Num_field);
-//        final EditText creditCardExpireField = this.findViewById(R.id.credit_card_expire_field);
-//        final EditText cvvField = this.findViewById(R.id.cvv_field);
-
 
         /**
          * Creates a user from the information given in the registration form.
@@ -60,9 +56,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 final String password = passwordField.getText().toString();
                 final String firstName = firstNameField.getText().toString();
                 final String lastName = lastNameField.getText().toString();
-//                final String creditCardNum = creditCardNumField.getText().toString();
-//                final String creditCardExpire = creditCardExpireField.getText().toString();
-//                final String ccv = cvvField.getText().toString();
 
                 //if user is already logged in
                 if (fAuth.getCurrentUser() != null) {
@@ -85,9 +78,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                         user.put("password", password);
                                         user.put("firstName", firstName);
                                         user.put("lastName", lastName);
-                                        user.put("creditCardNum", 1);
-                                        user.put("creditCardExpire", 1);
-                                        user.put("ccv", 1);
 
 
                                         /** Store extra User data to firestone once successful registration to firebase authentication

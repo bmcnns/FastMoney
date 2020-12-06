@@ -19,13 +19,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 import ca.dal.cs.csci3130.fastmoney.R;
 import ca.dal.cs.csci3130.fastmoney.fragments.JobCard;
 
-public class WorkActivity extends AppCompatActivity {
+public class HireActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_work);
+        setContentView(R.layout.activity_hire);
 
         firebaseFirestore.collection("jobs")
                 .get()
@@ -38,9 +38,9 @@ public class WorkActivity extends AppCompatActivity {
                                 FragmentManager fm = getFragmentManager();
                                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                                 JobCard jobCard = JobCard.newInstance(document.getId());
-                                fragmentTransaction.add(R.id.work_currentJobs_rootNode, jobCard, document.getId());
+                                fragmentTransaction.add(R.id.hire_filledJobs_rootNode, jobCard, document.getId());
                                 JobCard applicationCard = JobCard.newInstance(document.getId());
-                                fragmentTransaction.add(R.id.work_applications_rootNode, applicationCard, document.getId());
+                                fragmentTransaction.add(R.id.hire_unfilledJobs_rootNode, applicationCard, document.getId());
                                 fragmentTransaction.commit();
                             }
                         }

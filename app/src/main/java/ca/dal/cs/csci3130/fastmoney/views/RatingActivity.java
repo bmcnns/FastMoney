@@ -1,18 +1,16 @@
 package ca.dal.cs.csci3130.fastmoney.views;
 
-import android.content.Intent;
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
+import android.os.Bundle;
 
 import ca.dal.cs.csci3130.fastmoney.R;
 
-public class PostJobActivity extends AppCompatActivity {
+public class RatingActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_job);
+        setContentView(R.layout.activity_rating);
     }
 }
