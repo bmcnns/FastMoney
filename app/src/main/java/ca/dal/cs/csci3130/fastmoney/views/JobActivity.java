@@ -10,9 +10,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import ca.dal.cs.csci3130.fastmoney.R;
 
 public class JobActivity extends AppCompatActivity {
+    String jobId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
+
+        this.jobId = getIntent().getExtras().getString("jobId");
     }
 }

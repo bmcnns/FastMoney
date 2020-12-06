@@ -1,6 +1,7 @@
 package ca.dal.cs.csci3130.fastmoney.models;
 
 import java.util.Date;
+import java.util.List;
 
 public class Job {
     static final int MINIMUM_PAY_RATE = 1;
@@ -12,7 +13,7 @@ public class Job {
     String title;
     int payRate;
     String description;
-    String[] images;
+    List<String> images;
     Date postedDate;
     User employer;
     User employee;
@@ -41,11 +42,11 @@ public class Job {
         this.description = description;
     }
 
-    public String[] getImages() {
+    public List<String> getImages() {
         return images;
     }
 
-    public void setImages(String[] images) {
+    public void setImages(List<String> images) {
         this.images = images;
     }
 
@@ -76,7 +77,7 @@ public class Job {
     public Job(String title,
                int payRate,
                String description,
-               String[] images,
+               List<String> images,
                User employer,
                User employee,
                Date postedDate) {
@@ -92,7 +93,7 @@ public class Job {
     public Job(String title,
                int payRate,
                String description,
-               String[] images,
+               List<String> images,
                User employer,
                User employee) {
         this(title, payRate, description, images, employer, employee, new Date());
@@ -126,9 +127,9 @@ public class Job {
     }
 
     private boolean isImagesValid() {
-        if (getImages().length < 1)
+        if (getImages().size() < 1)
             return false;
-        else if (getImages().length > Job.MAXIMUM_IMAGE_COUNT)
+        else if (getImages().size() > Job.MAXIMUM_IMAGE_COUNT)
             return false;
         else
             return true;
