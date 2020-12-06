@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -40,13 +41,13 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
     //gets the inputted email
     protected String getEmailInput(){
-        EditText emailBox= findViewById(R.id.EmailAddress);
+        TextInputEditText emailBox= findViewById(R.id.EmailAddress);
         return emailBox.getText().toString();
     }
 
     //gets the inputted password
     protected String getPasswordInput(){
-        EditText passwordBox = findViewById(R.id.Password);
+        TextInputEditText passwordBox = findViewById(R.id.Password);
         return passwordBox.getText().toString();
     }
 
