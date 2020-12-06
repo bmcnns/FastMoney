@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    tools:context=".fragments.JobCard">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/defaultuserimage" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.45"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/jobCard_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Job Title"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"></TextView>
+
+                <TextView
+                    android:id="@+id/jobCard_payRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="$0/hr"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
+
+                <TextView
+                    android:id="@+id/jobCard_distance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0 kms away"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
+
+                <TextView
+                    android:id="@+id/jobCard_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0 days left"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"></TextView>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/jobCard_viewJobButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.30"
+                android:onClick="viewJobOverview"
+                android:text="View Job"></com.google.android.material.button.MaterialButton>
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</FrameLayout>
