@@ -7,11 +7,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.dal.cs.csci3130.fastmoney.R;
+import ca.dal.cs.csci3130.fastmoney.views.AddJobActivity;
 import ca.dal.cs.csci3130.fastmoney.views.FindJobActivity;
 import ca.dal.cs.csci3130.fastmoney.views.JobActivity;
 import ca.dal.cs.csci3130.fastmoney.views.LandingPageActivity;
 import ca.dal.cs.csci3130.fastmoney.views.LogInActivity;
-import ca.dal.cs.csci3130.fastmoney.views.PostJobActivity;
 import ca.dal.cs.csci3130.fastmoney.views.ProfileActivity;
 import ca.dal.cs.csci3130.fastmoney.views.WorkActivity;
 
@@ -49,7 +49,7 @@ public class LandingPage {
     @Test
     public void postJobButtonRedirectsToPostJobPage() {
         onView(withId(R.id.postJobButton)).perform(click());
-        intended(hasComponent(PostJobActivity.class.getName()));
+        intended(hasComponent(AddJobActivity.class.getName()));
     }
 
     @Test

@@ -50,6 +50,13 @@ public class Job {
         this.images = images;
     }
 
+    public void addImage(String image) { this.images.add(image); }
+
+    public void removeImage(String image) {
+        this.images.remove(image);
+    }
+
+
     public Date getPostedDate() {
         return postedDate;
     }
@@ -99,37 +106,37 @@ public class Job {
         this(title, payRate, description, images, employer, employee, new Date());
     }
 
-    private boolean isTitleValid() {
-        if (getTitle().length() > Job.MAXIMUM_TITLE_LENGTH)
+    public static boolean isTitleValid(String title) {
+        if (title.length() > Job.MAXIMUM_TITLE_LENGTH)
             return false;
-        else if (getTitle().length() < 1)
-            return false;
-        else
-            return true;
-    }
-
-    private boolean isPayRateValid() {
-        if (getPayRate() > Job.MAXIMUM_PAY_RATE)
-            return false;
-        else if (getPayRate() < Job.MINIMUM_PAY_RATE)
+        else if (title.length() < 1)
             return false;
         else
             return true;
     }
 
-    private boolean isDescriptionValid() {
-        if (getDescription().length() > Job.MAXIMUM_DESCRIPTION_LENGTH)
+    public static boolean isPayRateValid(int payRate) {
+        if (payRate > Job.MAXIMUM_PAY_RATE)
             return false;
-        else if (getDescription().length() < 1)
+        else if (payRate < Job.MINIMUM_PAY_RATE)
             return false;
         else
             return true;
     }
 
-    private boolean isImagesValid() {
-        if (getImages().size() < 1)
+    public static boolean isDescriptionValid(String description) {
+        if (description.length() > Job.MAXIMUM_DESCRIPTION_LENGTH)
             return false;
-        else if (getImages().size() > Job.MAXIMUM_IMAGE_COUNT)
+        else if (description.length() < 1)
+            return false;
+        else
+            return true;
+    }
+
+    public static boolean isImagesValid(List<String> images) {
+        if (images.size() < 1)
+            return false;
+        else if (images.size() > Job.MAXIMUM_IMAGE_COUNT)
             return false;
         else
             return true;
@@ -140,7 +147,10 @@ public class Job {
     }
 
     private boolean isEmployeeValid() {
-        return User.isValid(getEmployee());
+        if (getEmployee() == null)
+            return true;
+        else
+            return User.isValid(getEmployee());
     }
 
     private boolean isPostedDateValid() {
@@ -152,10 +162,10 @@ public class Job {
 
     public static boolean isValid(Job job) {
         return (
-                job.isTitleValid()
-                        && job.isPayRateValid()
-                        && job.isDescriptionValid()
-                        && job.isImagesValid()
+                isTitleValid(job.getTitle())
+                        && isPayRateValid(job.getPayRate())
+                        && isDescriptionValid(job.getDescription())
+                        && isImagesValid(job.getImages())
                         && job.isEmployerValid()
                         && job.isEmployeeValid()
                         && job.isPostedDateValid()
