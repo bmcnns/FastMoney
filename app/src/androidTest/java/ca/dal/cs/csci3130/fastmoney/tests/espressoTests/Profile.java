@@ -1,15 +1,16 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
 import android.content.Context;
+
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.dal.cs.csci3130.fastmoney.R;
-import ca.dal.cs.csci3130.fastmoney.views.MainActivity;
 import ca.dal.cs.csci3130.fastmoney.views.ProfileActivity;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -22,7 +23,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withHint;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class Profile {
@@ -41,8 +42,8 @@ public class Profile {
     public void showsRatings() {
         onView(withText("Employer Rating")).check(matches(isDisplayed()));
         onView(withText("Employee Rating")).check(matches(isDisplayed()));
-        onView(withId(R.id.employeeRatingStars)).check(matches(isDisplayed()));
-        onView(withId(R.id.employerRatingStars)).check(matches(isDisplayed()));
+        onView(withId(R.id.employeeStars)).check(matches(isDisplayed()));
+        onView(withId(R.id.employerStars)).check(matches(isDisplayed()));
     }
 
     @Test

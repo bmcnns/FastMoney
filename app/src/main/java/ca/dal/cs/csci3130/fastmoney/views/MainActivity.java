@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         Intent redirect;
-        redirect = new Intent(this, WorkHistoryActivity.class);
+        redirect = new Intent(this, LogInActivity.class);
         startActivity(redirect);
         finish();
     }

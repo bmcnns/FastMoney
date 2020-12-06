@@ -1,21 +1,19 @@
 package ca.dal.cs.csci3130.fastmoney.models;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import ca.dal.cs.csci3130.fastmoney.R;
-import ca.dal.cs.csci3130.fastmoney.views.JobActivity;
 
 public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycler.ViewHolder> {
 
@@ -31,13 +29,13 @@ public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycle
     public class ViewHolder extends RecyclerView.ViewHolder{
         ConstraintLayout parent;
         TextView jobTitle;
-        TextView Employer;
+        TextView date;
 
         public ViewHolder(View view){
             super(view);
             parent=view.findViewById(R.id.parent);
             jobTitle=view.findViewById(R.id.jTitle);
-            Employer=view.findViewById(R.id.Employer);
+            date=view.findViewById(R.id.date);
         }
     }
 
@@ -56,15 +54,13 @@ public class WorkHistoryRecycler extends RecyclerView.Adapter<WorkHistoryRecycle
         holder.jobTitle.setText(jobs.get(position).getTitle());
 
 
-        holder.Employer.setText(jobs.get(position).getEmployer().getFullName());
+        holder.date.setText(jobs.get(position).getPostedDate().toString());
 
         //Links each list entry with its job page
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent redirect= new Intent(context, JobActivity.class);
-                redirect.putExtra("Job", (Serializable) jobs.get(position));
-                context.startActivity(redirect);
+                Toast.makeText(context, jobs.get(position).payRate+"$/hr", Toast.LENGTH_SHORT).show();
             }
         });
     }
