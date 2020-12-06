@@ -1,5 +1,6 @@
 package ca.dal.cs.csci3130.fastmoney.views;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
     Button signOutBtn;
     Button deleteAccBtn;
     LinearLayout editNameLayout;
+    Button workHistoryBtn;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
@@ -63,6 +65,7 @@ public class ProfileActivity extends AppCompatActivity {
         cancelBtn = (Button)findViewById(R.id.cancelBtn);
         signOutBtn = (Button)findViewById(R.id.signOutBtn);
         deleteAccBtn = (Button)findViewById(R.id.deleteAccountBtn);
+        workHistoryBtn = (Button)findViewById(R.id.workHistoryButton);
 
         deleteAccBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -82,6 +85,13 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signOut();
+            }
+        });
+
+        workHistoryBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                redirectWorkHistoryPage();
             }
         });
 
@@ -179,6 +189,11 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void redirectWorkHistoryPage(){
+        Intent redirect = new Intent(this, WorkHistoryActivity.class);
+        startActivity(redirect);
     }
 
     public void signOut() {
