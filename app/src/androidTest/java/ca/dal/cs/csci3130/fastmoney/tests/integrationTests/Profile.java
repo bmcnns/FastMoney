@@ -1,5 +1,7 @@
 package ca.dal.cs.csci3130.fastmoney.tests.integrationTests;
 
+import android.app.Activity;
+
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -15,6 +17,7 @@ import ca.dal.cs.csci3130.fastmoney.views.LandingPageActivity;
 import ca.dal.cs.csci3130.fastmoney.views.LogInActivity;
 import ca.dal.cs.csci3130.fastmoney.views.ProfileActivity;
 import ca.dal.cs.csci3130.fastmoney.views.RegistrationActivity;
+import ca.dal.cs.csci3130.fastmoney.views.WorkHistoryActivity;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -30,7 +33,7 @@ public class Profile {
     FirebaseAuth firebaseAuth;
 
     @Rule
-    public IntentsTestRule<LogInActivity> myIntentsTestRule = new IntentsTestRule<>(LogInActivity.class);
+    public IntentsTestRule<ProfileActivity> myIntentsTestRule = new IntentsTestRule<>(ProfileActivity.class);
 
     @Before
     public void setUp() {
@@ -42,6 +45,13 @@ public class Profile {
         onView(withText("Sign Out")).perform(click());
         intended(hasComponent(LogInActivity.class.getName()));
     }
+
+    @Test
+    public void workActivityButtonRedirectsCorrectly() {
+        onView(withText("Work History")).perform(click());
+        intended(hasComponent(WorkHistoryActivity.class.getName()));
+    }
+
 
     @Test
     public void signOutButtonSignsOutUser() {
