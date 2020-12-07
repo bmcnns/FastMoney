@@ -326,7 +326,7 @@ public class AddJobActivity extends AppCompatActivity {
         }
 
         else {
-            throw new Exception("Job submitted was invalid.");
+            showFormErrors(true,true,true,true);
         }
     }
 }
