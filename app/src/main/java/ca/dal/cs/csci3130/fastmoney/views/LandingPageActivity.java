@@ -23,12 +23,14 @@ import java.util.Map;
 import ca.dal.cs.csci3130.fastmoney.R;
 
 public class LandingPageActivity extends AppCompatActivity {
+    public static String TEST_MODE;
 
     String fName, lName;
 
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    FirebaseAuth fAuth=FirebaseAuth.getInstance();
-    FirebaseFirestore db= FirebaseFirestore.getInstance();
+    String currentUser = (fAuth.getCurrentUser() == null) ? "testEmployer" : fAuth.getCurrentUser().getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,36 +40,29 @@ public class LandingPageActivity extends AppCompatActivity {
         final TextView welcomeMessage = (TextView)findViewById(R.id.welcomeHeader);
         final TextView signOutLink = (TextView)findViewById(R.id.signOutLink);
 
-        if (fAuth.getCurrentUser() == null) {
-            startActivity(new Intent(getApplicationContext(), LogInActivity.class));
-            finish();
-        }
-
-        db.collection("users").document((String)fAuth.getCurrentUser().getUid())
+        db.collection("users").document(currentUser)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            private static final String TAG = "db";
+                    private static final String TAG = "db";
 
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    DocumentSnapshot document = task.getResult();
-                    if(document.exists()){
-                        Map<String, Object> data = document.getData();
-                        fName = (String)data.get("firstName");
-                        lName = (String)data.get("lastName");
-                        welcomeMessage.setText("Welcome, "+fName);
-                        signOutLink.setText("Not "+fName+"? Sign out.");
-                    }else {
-                        Log.w(TAG, "Error getting documents.", task.getException());
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                Map<String, Object> data = document.getData();
+                                fName = (String) data.get("firstName");
+                                lName = (String) data.get("lastName");
+                                welcomeMessage.setText("Welcome, " + fName);
+                                signOutLink.setText("Not " + fName + "? Sign out.");
+                            } else {
+                                Log.w(TAG, "Error getting documents.", task.getException());
+                            }
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
                     }
-                } else {
-                    Log.w(TAG, "Error getting documents.", task.getException());
-                }
-            }
-        });
-
-
+                });
     }
 
     public void signOut(View view) {
