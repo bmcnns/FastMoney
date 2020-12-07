@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import ca.dal.cs.csci3130.fastmoney.R;
 
-public class LogInActivity extends AppCompatActivity implements View.OnClickListener{
+public class LogInActivity extends AppCompatActivity {
 
     FirebaseAuth fAuth;
 
@@ -29,13 +29,6 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_log_in);
 
         fAuth= FirebaseAuth.getInstance();
-
-        //handler for button
-        Button signInButton = findViewById(R.id.signInButton);
-        signInButton.setOnClickListener(this);
-
-        Button registrationButton = findViewById(R.id.regButton);
-        registrationButton.setOnClickListener(this);
 
         //if user is already logged in
         if (fAuth.getCurrentUser() != null) {
@@ -78,34 +71,29 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         return true;
     }
 
+    public void register(View view) {
+        redirectRegistrationPage();
+    }
 
-    public void onClick(View view) {
-        //redirects to the registration page
-        if (view.getId() == R.id.regButton) {
-            redirectRegistrationPage();
-        }
+    public void signIn(View view) {
+        String email = getEmailInput();
+        String password = getPasswordInput();
 
-        //checks for valid sign in on button click
-        else if (view.getId() == R.id.signInButton) {
-            String email = getEmailInput();
-            String password = getPasswordInput();
-
-            //ensures valid login credentials before continuing
-            if (checkForValidSignIn(email, password)) {
-                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = fAuth.getCurrentUser();
-                            redirectLandingPage();
-                        }
-                        else {
-                            // If sign in fails, display a message to the user.
-                            setStatusMessage("Incorrect email or password");
-                        }
+        //ensures valid login credentials before continuing
+        if (checkForValidSignIn(email, password)) {
+            fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = fAuth.getCurrentUser();
+                        redirectLandingPage();
                     }
-                });
-            }
+                    else {
+                        // If sign in fails, display a message to the user.
+                        setStatusMessage("Incorrect email or password");
+                    }
+                }
+            });
         }
     }
 

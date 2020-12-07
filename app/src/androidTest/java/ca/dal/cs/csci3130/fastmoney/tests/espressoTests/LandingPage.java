@@ -66,16 +66,31 @@ public class LandingPage {
 
     @Test
     public void signOutLinkHasCorrectName() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withSubstring("Sign out")).check(matches(withText(containsString("Not Jane? Sign out."))));
     }
 
     @Test
     public void showsWelcomeHeader() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withText("Welcome, Jane")).check(matches(isDisplayed()));
     }
 
     @Test
     public void welcomeHeaderHasCorrectName() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.welcomeHeader)).check(matches(withText(containsString("Welcome, Jane"))));
     }
 }
