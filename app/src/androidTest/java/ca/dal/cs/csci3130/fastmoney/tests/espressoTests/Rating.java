@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.dal.cs.csci3130.fastmoney.views.MainActivity;
+import ca.dal.cs.csci3130.fastmoney.views.RatingActivity;
 
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -19,7 +20,7 @@ import static org.junit.Assert.*;
 public class Rating {
 
     @Rule
-    public ActivityScenarioRule<MainActivity> myRule = new ActivityScenarioRule<>(MainActivity.class);
+    public ActivityScenarioRule<RatingActivity> myRule = new ActivityScenarioRule<>(RatingActivity.class);
 
     @Test
     public void ratingMustBeSelected() {
