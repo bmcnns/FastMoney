@@ -11,6 +11,8 @@ import ca.dal.cs.csci3130.fastmoney.views.AddJobActivity;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -50,70 +52,75 @@ public class AddJob {
 
     @Test
     public void showsPostButton() {
+        onView(withText("Post")).perform(scrollTo());
         onView(withText("Post")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenTitleIsNotAdded() {
-        onView(withText("Post")).perform(click());
-        onView(withText("Title can not be blank")).check(matches(isDisplayed()));
+        onView(withText("Post")).perform(scrollTo(), click());
+        onView(withText("Error: you must enter a valid job title.")).perform(scrollTo());
+        onView(withText("Error: you must enter a valid job title.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenTitleIsOverMaxLength() {
         String absurdlyLargeString = "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-        onView(withText("John")).perform(typeText(absurdlyLargeString));
-        onView(withText("Post")).perform(click());
-        onView(withText("Title must be fewer characters")).check(matches(isDisplayed()));
+        onView(withHint("John")).perform(scrollTo(), replaceText(absurdlyLargeString));
+        onView(withText("Post")).perform(scrollTo(), click());
+        onView(withText("Error: you must enter a valid job title.")).perform(scrollTo());
+        onView(withText("Error: you must enter a valid job title.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenPayRateIsNotAdded() {
-        onView(withText("$0/hr")).perform(clearText());
-        onView(withText("Post")).perform(click());
-        onView(withText("Pay rate can not be blank")).check(matches(isDisplayed()));
+        onView(withHint("$0/hr")).perform(clearText());
+        onView(withText("Post")).perform(scrollTo(),click());
+        onView(withText("Error: you must enter a valid pay rate.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenPayRateIsLowerThanMinimumValue() {
         String minimumPayRate = "$1/hr";
-        onView(withText("$0/hr")).perform(clearText());
-        onView(withText("Post")).perform(click());
-        onView(withText("Pay rate must be more than minimum value.")).check(matches(isDisplayed()));
+        onView(withHint("$0/hr")).perform(clearText());
+        onView(withText("Post")).perform(scrollTo(),click());
+        onView(withText("Error: you must enter a valid pay rate.")).perform(scrollTo());
+        onView(withText("Error: you must enter a valid pay rate.")).check(matches(isDisplayed()));
     }
 
     @Test
-    public void showsErrorWhenPayRateIsLowerThanMaximumValue() {
-        String maximumPayRate = "$1000/hr";
-        onView(withText("$0/hr")).perform(clearText());
-        onView(withText("$0/hr")).perform(typeText(maximumPayRate));
-        onView(withText("Post")).perform(click());
-        onView(withText("Pay rate must be less than the maximum value.")).check(matches(isDisplayed()));
+    public void showsErrorWhenPayRateIsHigherThanMaximumValue() {
+        String maximumPayRate = "1000";
+        onView(withHint("$0/hr")).perform(clearText());
+        onView(withHint("$0/hr")).perform(typeText(maximumPayRate));
+        onView(withText("Pay Rate")).perform(scrollTo());
+        onView(withText("Images")).perform(scrollTo());
+        onView(withText("Post")).perform(scrollTo(),click());
+        onView(withText("Error: you must enter a valid pay rate.")).perform(scrollTo());
+        onView(withText("Error: you must enter a valid pay rate.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenDescriptionIsNotAdded() {
-        onView(withText("Raking and disposing of leaves...")).perform(clearText());
-        onView(withText("Post")).perform(click());
-        onView(withText("Description must be added.")).check(matches(isDisplayed()));
+        onView(withHint("Raking and disposing of leaves...")).perform(clearText());
+        onView(withText("Post")).perform(scrollTo(),click());
+        onView(withText("Error: you must add a valid description.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenDescriptionIsNotValidLength() {
         String absurdlyLargeString = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-        onView(withText("Raking and disposing of leaves...")).perform(clearText());
-        onView(withText("Raking and disposing of leaves...")).perform(typeText(absurdlyLargeString));
-        onView(withText("Post")).perform(click());
-        onView(withText("Description must be less than maximum length.")).check(matches(isDisplayed()));
+        onView(withHint("Raking and disposing of leaves...")).perform(scrollTo(),clearText());
+        onView(withHint("Raking and disposing of leaves...")).perform(replaceText(absurdlyLargeString));
+        onView(withText("Post")).perform(scrollTo(), click());
+        onView(withText("Error: you must add a valid description.")).perform(scrollTo());
+        onView(withText("Error: you must add a valid description.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsErrorWhenMinimumAmountOfImagesNotIncluded() {
-        assertFalse(!false);
+        onView(withText("Post")).perform(scrollTo(), click());
+        onView(withText("Error: you must add at least one image.")).check(matches(isDisplayed()));
     }
 
-    @Test
-    public void showsErrorWhenMaximumAmountOfImagesExceeded() {
-        assertFalse(!false);
-    }
 }
