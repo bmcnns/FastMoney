@@ -10,25 +10,30 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="false">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="false"
             android:orientation="vertical">
+
             <LinearLayout
                 android:id="@+id/ratingView"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:background="@drawable/border">
+                android:background="@drawable/border"
+                android:clickable="false"
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/ratingTitle"
-                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
 
                     android:text="Rating"
                     android:textColor="#000000"
@@ -39,87 +44,104 @@
                     tools:textSize="24sp" />
 
                 <LinearLayout
-                    android:id="@+id/employeeStars"
+                    android:id="@+id/rating_starContainer"
                     android:layout_width="match_parent"
-                    android:padding="5dp"
                     android:layout_height="60dp"
+                    android:clickable="false"
                     android:orientation="horizontal"
+                    android:padding="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ratingTitle">
 
                     <ImageView
-                        android:id="@+id/star1ImgView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.2"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:clickable="true"
+                        android:onClick="rate"
+                        app:srcCompat="@android:drawable/btn_star_big_off" />
 
                     <ImageView
-                        android:id="@+id/star2ImgView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.2"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:clickable="true"
+                        android:onClick="rate"
+                        app:srcCompat="@android:drawable/btn_star_big_off" />
 
                     <ImageView
-                        android:id="@+id/star3ImgView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.2"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:clickable="true"
+                        android:onClick="rate"
+                        app:srcCompat="@android:drawable/btn_star_big_off" />
 
                     <ImageView
-                        android:id="@+id/star4ImgView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.2"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:clickable="true"
+                        android:onClick="rate"
+                        app:srcCompat="@android:drawable/btn_star_big_off" />
 
                     <ImageView
-                        android:id="@+id/star5ImgView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.2"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:clickable="true"
+                        android:onClick="rate"
+                        app:srcCompat="@android:drawable/btn_star_big_off" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/rating_ratingError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Error: you must provide a rating."
+                    android:textColor="#FF0000"
+                    android:visibility="gone">
+
+                </TextView>
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/reviewView"
-                android:layout_marginVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/border">
+                android:layout_marginVertical="15dp"
+                android:background="@drawable/border"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/reviewTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop = "10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
                     android:text="Review"
                     android:textColor="#000000"
-                    android:textStyle="bold"
                     android:textSize="24dp"
-                    android:layout_gravity="center"
-                    />
+                    android:textStyle="bold" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/review_field_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:counterEnabled="true"
-                    android:padding="20dp"
                     android:hint="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidudunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    android:padding="20dp"
+                    app:counterEnabled="true"
                     app:counterMaxLength="250"
                     app:errorEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/rating_reviewInput"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="start"
                         android:inputType="textMultiLine"
-                        android:maxLines="1"
+                        android:maxLines="12"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:counterEnabled="true"
                         app:counterMaxLength="255" />
@@ -130,6 +152,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="submit"
                 android:padding="20dp"
                 android:text="Submit">
 
