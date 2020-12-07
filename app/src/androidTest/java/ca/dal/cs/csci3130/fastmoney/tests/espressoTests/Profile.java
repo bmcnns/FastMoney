@@ -32,13 +32,6 @@ public class Profile {
     public ActivityScenarioRule<ProfileActivity> myRule = new ActivityScenarioRule<>(ProfileActivity.class);
 
     @Test
-    public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("ca.dal.cs.csci3130.fastmoney.examples.espressoTests", appContext.getPackageName());
-    }
-
-    @Test
     public void showsRatings() {
         onView(withText("Employer Rating")).check(matches(isDisplayed()));
         onView(withText("Employee Rating")).check(matches(isDisplayed()));
