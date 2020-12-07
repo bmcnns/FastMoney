@@ -3,8 +3,10 @@ package ca.dal.cs.csci3130.fastmoney.unitTests;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import ca.dal.cs.csci3130.fastmoney.models.Job;
 import ca.dal.cs.csci3130.fastmoney.models.User;
@@ -56,7 +58,7 @@ public class JobTest {
                 validTitle,
                 validPayRate,
                 validDescription,
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee);
 
@@ -69,7 +71,7 @@ public class JobTest {
                 "",
                 validPayRate,
                 validDescription,
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee
         );
@@ -82,7 +84,7 @@ public class JobTest {
             "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                 validPayRate,
                 validDescription,
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee
         );
@@ -96,7 +98,7 @@ public class JobTest {
                 validTitle,
                 validPayRate,
                 "",
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee
         );
@@ -111,7 +113,7 @@ public class JobTest {
                 validTitle,
                 validPayRate,
                 invalidDescription,
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee
         );
@@ -125,7 +127,7 @@ public class JobTest {
                 validTitle,
                 0,
                 validDescription,
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee
         );
@@ -139,7 +141,7 @@ public class JobTest {
                 validTitle,
                 -20,
                 validDescription,
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee
         );
@@ -153,7 +155,7 @@ public class JobTest {
                 validTitle,
                 1000,
                 validDescription,
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee
         );
@@ -173,7 +175,7 @@ public class JobTest {
                 validTitle,
                 validPayRate,
                 validDescription,
-                validImages,
+                Arrays.asList(validImages),
                 validEmployer,
                 validEmployee,
                 future
@@ -224,7 +226,7 @@ public class JobTest {
                 validTitle,
                 validPayRate,
                 validDescription,
-                new String[] {},
+                Arrays.asList(new String[]{}),
                 validEmployer,
                 validEmployee
         );
@@ -244,7 +246,7 @@ public class JobTest {
                 validTitle,
                 validPayRate,
                 validDescription,
-                new String[] {},
+                Arrays.asList(new String[]{}),
                 validEmployer,
                 validEmployee
         );
