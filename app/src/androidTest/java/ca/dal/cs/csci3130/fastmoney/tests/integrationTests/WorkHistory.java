@@ -21,9 +21,6 @@ public class WorkHistory{
     public IntentsTestRule<LogInActivity> myIntentsTestRule = new IntentsTestRule<>(LogInActivity.class);
 
     @Test
-    public void sendsCorrectToJobPage(){assertTrue(false);}
-
-    @Test
     public void sendToRegistrationPage() throws InterruptedException {
         onView(withId(R.id.landingPageRedirect)).perform(click());
         Thread.sleep(2000);
