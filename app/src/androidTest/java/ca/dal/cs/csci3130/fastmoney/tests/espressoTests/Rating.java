@@ -11,7 +11,11 @@ import org.junit.runner.RunWith;
 import ca.dal.cs.csci3130.fastmoney.views.MainActivity;
 import ca.dal.cs.csci3130.fastmoney.views.RatingActivity;
 
+import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.junit.Assert.*;
@@ -24,32 +28,25 @@ public class Rating {
 
     @Test
     public void ratingMustBeSelected() {
-        assertFalse(!false);
-    }
-
-    @Test
-    public void reviewCanBeBlank() {
-        assertFalse(!false);
-    }
-
-    @Test
-    public void reviewCanBeFilledIn() {
-        assertFalse(!false);
+        onView(withText("Review")).perform(scrollTo());
+        onView(withText("Submit")).perform(scrollTo(), click());
+        onView(withText("Error: you must provide a rating."));
     }
 
     @Test
     public void showsSubmitButton() {
-        assertFalse(!false);
+        onView(withText("Review")).perform(scrollTo());
+        onView(withText("Submit")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsRating() {
-        assertFalse(!false);
+        onView(withText("Rating")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsReview() {
-        assertFalse(!false);
+        onView(withText("Review")).check(matches(isDisplayed()));
     }
 
 }
