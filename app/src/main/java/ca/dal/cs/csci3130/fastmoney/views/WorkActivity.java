@@ -4,6 +4,8 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,7 @@ import ca.dal.cs.csci3130.fastmoney.R;
 import ca.dal.cs.csci3130.fastmoney.fragments.JobCard;
 
 public class WorkActivity extends AppCompatActivity {
+    public static String TEST_MODE;
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     @Override
@@ -35,13 +38,20 @@ public class WorkActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                         } else {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                FragmentManager fm = getFragmentManager();
-                                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                                JobCard jobCard = JobCard.newInstance(document.getId());
-                                fragmentTransaction.add(R.id.work_currentJobs_rootNode, jobCard, document.getId());
-                                JobCard applicationCard = JobCard.newInstance(document.getId());
-                                fragmentTransaction.add(R.id.work_applications_rootNode, applicationCard, document.getId());
-                                fragmentTransaction.commit();
+                                if (task.getResult().size() == 0 || WorkActivity.TEST_MODE == "NO_JOBS") {
+                                    ((LinearLayout)findViewById(R.id.work_noJobsContainer)).setVisibility(View.VISIBLE);
+                                    ((LinearLayout)findViewById(R.id.work_currentJobs_rootNode)).setVisibility(View.GONE);
+                                    ((LinearLayout)findViewById(R.id.work_applications_rootNode)).setVisibility(View.GONE);
+                                }
+                                else {
+                                    FragmentManager fm = getFragmentManager();
+                                    FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                                    JobCard jobCard = JobCard.newInstance(document.getId());
+                                    fragmentTransaction.add(R.id.work_currentJobs_rootNode, jobCard, document.getId());
+                                    JobCard applicationCard = JobCard.newInstance(document.getId());
+                                    fragmentTransaction.add(R.id.work_applications_rootNode, applicationCard, document.getId());
+                                    fragmentTransaction.commit();
+                                }
                             }
                         }
                     }
