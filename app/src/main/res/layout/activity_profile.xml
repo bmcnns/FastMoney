@@ -1,355 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <ScrollView
-        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/userInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/userImgView"
-                    android:layout_width="350px"
-                    android:layout_height="350px"
-                    android:layout_marginTop="16dp"
-                    android:contentDescription="user image"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/defaultuserimage"
-                    tools:srcCompat="@drawable/defaultuserimage" />
-
-                <TextView
-                    android:id="@+id/usernameTxtView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="TextView"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/userImgView" />
-
-                <TextView
-                    android:id="@+id/userLocationTxtView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="TextView"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/usernameTxtView" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/editBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="Edit"
-                    android:textColor="@android:color/darker_gray"
-                    app:backgroundTint="@android:color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/cancelBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text="Cancel"
-                    android:textColor="@android:color/darker_gray"
-                    android:visibility="invisible"
-                    app:backgroundTint="@android:color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editBtn" />
-
-                <LinearLayout
-                    android:id="@+id/editNameLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="64dp"
-                    android:layout_marginLeft="64dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="64dp"
-                    android:layout_marginRight="64dp"
-                    android:orientation="horizontal"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/userImgView">
-
-                    <EditText
-                        android:id="@+id/fNameInput"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/lNameInput"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="textPersonName" />
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ratingView"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginLeft="64dp"
-                android:layout_marginEnd="64dp"
-                android:layout_marginRight="64dp"
-                android:background="@drawable/border">
-
-                <TextView
-                    android:id="@+id/employerRatingTitleTxtView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Employer Rating"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
-                    android:id="@+id/employerStars"
                     android:layout_width="match_parent"
-                    android:layout_height="75px"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginRight="24dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/employerRatingTitleTxtView">
-
-                    <ImageView
-                        android:id="@+id/star1ImgView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                    <ImageView
-                        android:id="@+id/star2ImgView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                    <ImageView
-                        android:id="@+id/star3ImgView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                    <ImageView
-                        android:id="@+id/star4ImgView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-                    <ImageView
-                        android:id="@+id/star5ImgView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Employee Rating"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/employerStars" />
-
-                <LinearLayout
-                    android:id="@+id/employeeStars"
-                    android:layout_width="match_parent"
-                    android:layout_height="75px"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginRight="24dp"
-                    android:layout_marginBottom="16dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView5">
+                    android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/star1ImgView2"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/profile_image"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="user image"
+                        android:cropToPadding="true"
+                        android:padding="20dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/defaultuserimage"
+                        tools:srcCompat="@drawable/defaultuserimage" />
 
-                    <ImageView
-                        android:id="@+id/star2ImgView2"
+                    <TextView
+                        android:id="@+id/profile_fullName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:layout_gravity="center"
+                        android:text="John Doe"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textStyle="bold" />
 
-                    <ImageView
-                        android:id="@+id/star3ImgView2"
+                    <TextView
+                        android:id="@+id/profile_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:layout_gravity="center"
+                        android:text="Halifax, Nova Scotia, Canada"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/star4ImgView2"
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/profile_editButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:onClick="toggleEditing"
+                        android:text="Edit"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="@color/design_default_color_primary"></com.google.android.material.button.MaterialButton>
 
-                    <ImageView
-                        android:id="@+id/star5ImgView2"
+
+                    <Button
+                        android:id="@+id/profile_cancelButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:onClick="toggleEditing"
+                        android:text="Cancel"
+                        android:textColor="#000"
+                        android:visibility="gone"
+                        app:backgroundTint="@android:color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_editButton" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/profile_editNameContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="64dp"
+                        android:layout_marginLeft="64dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="64dp"
+                        android:layout_marginRight="64dp"
                         android:layout_weight="1"
-                        android:visibility="invisible"
-                        app:srcCompat="@android:drawable/btn_star_big_on" />
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/profile_firstNameInput"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:inputType="textPersonName"
+                            android:visibility="visible" />
+
+                        <EditText
+                            android:id="@+id/profile_lastNameInput"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:inputType="textPersonName"
+                            android:visibility="visible" />
+                    </com.google.android.material.card.MaterialCardView>
+
                 </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout4"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_ratingContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginLeft="64dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="64dp"
-                android:layout_marginRight="64dp"
-                android:background="@drawable/border">
+                android:layout_marginBottom="20dp">
 
-                <TextView
-                    android:id="@+id/emailTitleTxtView"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Email"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                <EditText
-                    android:id="@+id/emailInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginRight="24dp"
-                    android:layout_marginBottom="16dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="defaultTest@test.com"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emailTitleTxtView" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Employer Rating"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold"></TextView>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:id="@+id/profile_employerRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="false"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ratingTitle">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/profile_employerRatingError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Error: you must provide a rating."
+                        android:textColor="#FF0000"
+                        android:visibility="gone"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Employee Rating"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold"></TextView>
+
+                    <LinearLayout
+                        android:id="@+id/profile_employeeRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:clickable="false"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ratingTitle">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:clickable="true"
+                            app:srcCompat="@android:drawable/btn_star_big_off" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/rating_ratingError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Error: you must provide a rating."
+                        android:textColor="#FF0000"
+                        android:visibility="gone">
+
+                    </TextView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_informationContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginStart="24dp"
+                        android:text="Email"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <EditText
+                        android:id="@+id/profile_emailInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:focusable="false"
+                        android:inputType="textPersonName"
+                        android:text="defaultTest@test.com"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/workHistoryButton"
+                android:id="@+id/profile_workHistoryButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:text="Work History"/>
+                android:onClick="workHistoryRedirect"
+                android:text="Work History" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/signOutBtn"
+                android:id="@+id/profile_signOutButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:onClick="signOut"
                 android:text="Sign Out" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/deleteAccountBtn"
+                android:id="@+id/profile_deleteAccountButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
+                android:onClick="deleteAccount"
                 android:text="Delete Account"
                 app:backgroundTint="@color/colorDanger" />
         </LinearLayout>
-
     </ScrollView>
+</LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-        app:menu="@menu/bottom_navigation_menu" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>

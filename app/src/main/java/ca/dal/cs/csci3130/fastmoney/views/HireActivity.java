@@ -20,7 +20,6 @@ import ca.dal.cs.csci3130.fastmoney.fragments.JobCard;
 
 public class HireActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    public static String TEST_MODE = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class HireActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (!task.isSuccessful()) {
                         } else {
-                            if (task.getResult().size() == 0 || TEST_MODE.equals("NO_JOBS")) {
+                            if (task.getResult().size() == 0) {
                                 LinearLayout noJobsContainer = findViewById(R.id.hire_noJobsContainer);
                                 noJobsContainer.setVisibility(View.VISIBLE);
                                 LinearLayout filledJobsContainer = findViewById(R.id.hire_filledJobs_rootNode);
