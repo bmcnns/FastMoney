@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/ratingView"
+                android:id="@+id/rating_starContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border"
@@ -44,7 +44,7 @@
                     tools:textSize="24sp" />
 
                 <LinearLayout
-                    android:id="@+id/rating_starContainer"
+                    android:id="@+id/profile_employeeRating"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:clickable="false"

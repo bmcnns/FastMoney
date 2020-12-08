@@ -13,7 +13,7 @@ import static ca.dal.cs.csci3130.fastmoney.testing.TestUserType.EMPLOYER;
 import static ca.dal.cs.csci3130.fastmoney.testing.TestUserType.RANDOM;
 
 public abstract class TestingController {
-    private static TestingMode testingMode;
+    private static TestingMode testingMode = TestingMode.DISABLED;
 
     private static User testRandomUser = new User(
             "John",
@@ -22,8 +22,8 @@ public abstract class TestingController {
             "Halifax, Nova Scotia, Canada",
             "4724090012345678",
             "test/user/placeholder_1.jpg",
-            5.0f,
-            5.0f
+            5f,
+            5f
             );
 
     private static User testEmployee = new User(
@@ -33,8 +33,8 @@ public abstract class TestingController {
             "Halifax, Nova Scotia, Canada",
             "4724090012345678",
             "test/user/placeholder_2.jpg",
-            5.0f,
-            5.0f
+            5f,
+            5f
     );
 
     private static User testEmployer = new User(
@@ -44,8 +44,8 @@ public abstract class TestingController {
             "Halifax, Nova Scotia, Canada",
             "4724090012345678",
             "test/user/placeholder_3.jpg",
-            5.0f,
-            5.0f
+            5f,
+            5f
     );
 
     private static Job testJob = new Job(
@@ -68,11 +68,11 @@ public abstract class TestingController {
         return TestingController.testJob;
     }
 
-    private static User getTestUser() {
+    public static User getTestUser() {
         return testRandomUser;
     }
 
-    private static User getTestUser(TestUserType t) {
+    public static User getTestUser(TestUserType t) {
         switch (t) {
             case RANDOM:
                 return testRandomUser;
@@ -83,5 +83,9 @@ public abstract class TestingController {
             default:
                 return null;
         }
+    }
+
+    public static void setTestingMode(TestingMode testingMode) {
+        TestingController.testingMode = testingMode;
     }
 }

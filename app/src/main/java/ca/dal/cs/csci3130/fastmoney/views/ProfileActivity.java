@@ -1,6 +1,5 @@
 package ca.dal.cs.csci3130.fastmoney.views;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,203 +15,193 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.w3c.dom.Document;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import ca.dal.cs.csci3130.fastmoney.R;
+import ca.dal.cs.csci3130.fastmoney.models.Job;
+import ca.dal.cs.csci3130.fastmoney.models.User;
+import ca.dal.cs.csci3130.fastmoney.testing.TestingController;
+import ca.dal.cs.csci3130.fastmoney.testing.TestingMode;
 
 public class ProfileActivity extends AppCompatActivity {
-    String fName;
-    String lName;
-    String email;
-    String location;
-    double employeeRating;
-    double employerRating;
-    long employeeRatingCount;
-    long employerRatingCount;
-    boolean editing = false;
-    Button editbtn;
-    Button cancelBtn;
-    Button signOutBtn;
-    Button deleteAccBtn;
-    LinearLayout editNameLayout;
-    Button workHistoryBtn;
+    static boolean isEditing = false;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
-    DocumentReference docRef = db.collection("users").document((String)fAuth.getCurrentUser().getUid());
-
+    String currentUserId = (fAuth.getCurrentUser() != null) ? fAuth.getCurrentUser().getUid() : "test";
+    DocumentReference currentUserDocument = db.collection("users").document(currentUserId);
+    User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        final TextView usernameLabel = (TextView)findViewById(R.id.usernameTxtView);
-        final TextView locationLabel = (TextView)findViewById(R.id.userLocationTxtView);
-        final EditText emailInput = (EditText)findViewById(R.id.emailInput);
-        final EditText fNameInput = (EditText)findViewById(R.id.fNameInput);
-        final EditText lNameInput = (EditText)findViewById(R.id.lNameInput);
-        emailInput.setFocusable(false);
+        TestingController.setTestingMode(TestingMode.ENABLED);
 
-        editNameLayout = (LinearLayout)findViewById(R.id.editNameLayout);
-        editbtn = (Button)findViewById(R.id.editBtn);
-        cancelBtn = (Button)findViewById(R.id.cancelBtn);
-        signOutBtn = (Button)findViewById(R.id.signOutBtn);
-        deleteAccBtn = (Button)findViewById(R.id.deleteAccountBtn);
-        workHistoryBtn = (Button)findViewById(R.id.workHistoryButton);
+        if (TestingController.getTestingMode() == TestingMode.DISABLED) {
+            queryDatabaseForUserAndUpdateDisplay(currentUserDocument);
+        }
+        else {
+            currentUser = TestingController.getTestUser();
+            updateDisplayInformation(currentUser);
+        }
+    }
 
-        deleteAccBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                docRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        db.collection("users").document(fAuth.getUid()).delete();
-                        fAuth.getCurrentUser().delete();
-                        signOut();
-                    }
-                });
-            }
-        });
-
-        signOutBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                signOut();
-            }
-        });
-
-        workHistoryBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                redirectWorkHistoryPage();
-            }
-        });
-
-        editbtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if(editing){
-                    final Map<String, Object> newUserData = new HashMap<>();
-                    newUserData.put("firstName", String.valueOf(fNameInput.getText()));
-                    newUserData.put("lastName", String.valueOf(lNameInput.getText()));
-                    newUserData.put("email", String.valueOf(emailInput.getText()));
-                    email=String.valueOf(emailInput.getText());
-                    docRef.update(newUserData).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            editing = false;
-                            editbtn.setText("Edit");
-                            cancelBtn.setVisibility(View.INVISIBLE);
-                            editNameLayout.setVisibility(View.INVISIBLE);
-                            usernameLabel.setVisibility(View.VISIBLE);
-                            emailInput.setFocusable(false);
-                            String username = newUserData.get("firstName") + " " + newUserData.get("lastName");
-                            fName = (String)newUserData.get("firstName");
-                            lName = (String)newUserData.get("lastName");
-                            usernameLabel.setText(username);
-                            fNameInput.setText(fName);
-                            lNameInput.setText(lName);
-                            emailInput.setText(email);
-                        }
-                    });
-                } else {
-                    editing = true;
-                    editbtn.setText("Save");
-                    usernameLabel.setVisibility(View.INVISIBLE);
-                    cancelBtn.setVisibility(View.VISIBLE);
-                    editNameLayout.setVisibility(View.VISIBLE);
-                    emailInput.setFocusableInTouchMode(true);
-                    emailInput.setFocusable(true);
-                }
-            }
-        });
-
-        cancelBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                editing = false;
-                editbtn.setText("Edit");
-                cancelBtn.setVisibility(View.INVISIBLE);
-                editNameLayout.setVisibility(View.INVISIBLE);
-                usernameLabel.setVisibility(View.VISIBLE);
-                emailInput.setFocusable(false);
-                fNameInput.setText(fName);
-                lNameInput.setText(lName);
-            }
-        });
-
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+    private void queryDatabaseForUserAndUpdateDisplay(DocumentReference userDocument) {
+        userDocument.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if(task.isSuccessful()){
                     DocumentSnapshot document = task.getResult();
                     if(document.exists()){
-                        Map<String, Object> data = document.getData();
-                        fName = (String)data.get("firstName");
-                        lName = (String)data.get("lastName");
-                        String username = fName + " " + lName;
-                        email = (String)data.get("email");
-                        location = (String)data.get("location");
-                        employeeRating = (double)data.get("employeeRating");
-                        employeeRatingCount = (long)data.get("employeeRatingCount");
-                        employerRatingCount = (long)data.get("employeeRatingCount");
-                        employerRating = (double)data.get("employerRating");
-
-                        //display user data
-                        usernameLabel.setText(username);
-                        fNameInput.setText(fName);
-                        lNameInput.setText(lName);
-                        locationLabel.setText(location);
-                        emailInput.setText(email);
-
-                        //Show not available when no rating
-                        if(employeeRatingCount==0){
-                            TextView title = findViewById(R.id.textView5);
-                            title.setText("No Employer Rating is available");
-                        }
-                        if(employerRatingCount==0){
-                            TextView title = findViewById(R.id.employerRatingTitleTxtView);
-                            title.setText("No Employer Rating is available");
-                        }
-
-
-                        LinearLayout employeeRatingLayout = (LinearLayout)findViewById(R.id.employeeStars);
-                        for(int i = 0; i < (int)employeeRating; i++){
-                            ImageView star = (ImageView)employeeRatingLayout.getChildAt(i);
-                            star.setVisibility(View.VISIBLE);
-                        }
-                        LinearLayout employerRatingLayout = (LinearLayout)findViewById(R.id.employerStars);
-                        for(int i = 0; i < (int)employerRating; i++){
-                            ImageView star = (ImageView)employerRatingLayout.getChildAt(i);
-                            star.setVisibility(View.VISIBLE);
-                        }
-                    } else {
-                        //error handling for if user does not exist
+                        currentUser = getUserFromData(document.getData());
+                        updateDisplayInformation(currentUser);
                     }
-                } else {
-                    //error handing for if something went wrong when attempting to query the database
                 }
             }
         });
-
     }
 
-    public void redirectWorkHistoryPage(){
+    private User getUserFromData(Map<String, Object> data) {
+        return new User(
+                (String)data.get("firstName"),
+                (String)data.get("lastName"),
+                (String)data.get("email"),
+                (String)data.get("location"),
+                "",
+                (String)data.get("image"),
+                (long)data.get("employeeRating"),
+                (long)data.get("employerRating")
+        );
+    }
+
+    private void updateRatingDisplay(LinearLayout container, int value) {
+        for(int i = 0; i < value; i++){
+            ((ImageView)container.getChildAt(i)).setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void updateDisplayInformation(User user) {
+        ((TextView)(findViewById(R.id.profile_fullName))).setText(user.getFullName());
+        ((TextView)(findViewById(R.id.profile_firstNameInput))).setText(user.getFirstName());
+        ((TextView)(findViewById(R.id.profile_lastNameInput))).setText(user.getLastName());
+        ((TextView)(findViewById(R.id.profile_location))).setText(user.getLocation());
+        ((TextView)(findViewById(R.id.profile_emailInput))).setText(user.getEmail());
+
+        updateRatingDisplay(
+                (LinearLayout)findViewById(R.id.profile_employerRating),
+                (int)Math.floor(user.getEmployerRating())
+        );
+
+        updateRatingDisplay(
+                (LinearLayout)findViewById(R.id.profile_employeeRating),
+                (int)Math.floor(user.getEmployeeRating())
+        );
+    }
+
+    private User extractUserFromForm() {
+        String firstName = ((TextView)findViewById(R.id.profile_firstNameInput)).getText().toString();
+        String lastName = ((TextView)findViewById(R.id.profile_lastNameInput)).getText().toString();
+        String email = ((TextView)findViewById(R.id.profile_emailInput)).getText().toString();
+
+        User updatedUser = new User(
+                firstName,
+                lastName,
+                email,
+                currentUser.getLocation(),
+                currentUser.getCreditCard(),
+                currentUser.getImage(),
+                currentUser.getEmployerRating(),
+                currentUser.getEmployeeRating()
+        );
+
+        if (User.isValid(updatedUser))
+            return updatedUser;
+        else
+            return null;
+    }
+
+    private void updateUserInDatabase(DocumentReference userDocument, final User user) {
+        final Map<String, Object> editedUserData = new HashMap<>();
+        editedUserData.put("firstName", user.getFirstName());
+        editedUserData.put("lastName", user.getLastName());
+        editedUserData.put("email", user.getEmail());
+
+        userDocument.update(editedUserData).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                stopEditing();
+            }
+        });
+    }
+
+    private void stopEditing() {
+        ProfileActivity.isEditing = false;
+        ((MaterialButton)findViewById(R.id.profile_editButton)).setText("Edit");
+        ((Button)findViewById(R.id.profile_cancelButton)).setVisibility(View.INVISIBLE);
+        ((LinearLayout)findViewById(R.id.profile_editNameContainer)).setVisibility(View.INVISIBLE);
+        ((TextView)findViewById(R.id.profile_fullName)).setVisibility(View.VISIBLE);
+        ((TextView)findViewById(R.id.profile_emailInput)).setFocusable(false);
+        ((TextView)findViewById(R.id.profile_firstNameInput)).setText(currentUser.getFirstName());
+        ((TextView)findViewById(R.id.profile_lastNameInput)).setText(currentUser.getLastName());
+    }
+
+    private void startEditing() {
+        ProfileActivity.isEditing = true;
+        ((MaterialButton)findViewById(R.id.profile_editButton)).setText("Save");
+        ((TextView)findViewById(R.id.profile_fullName)).setVisibility(View.INVISIBLE);
+        ((Button)findViewById(R.id.profile_cancelButton)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.profile_editNameContainer)).setVisibility(View.VISIBLE);
+        ((TextView)findViewById(R.id.profile_emailInput)).setFocusableInTouchMode(true);
+        ((TextView)findViewById(R.id.profile_emailInput)).setFocusable(true);
+    }
+
+    private void signOutUserAndRedirect() {
+        fAuth.signOut();
+        Intent redirect = new Intent(this, LogInActivity.class);
+        startActivity(redirect);
+    }
+
+    public void toggleEditing(View v) {
+        if (ProfileActivity.isEditing) {
+            User editedUser = extractUserFromForm();
+
+            if (User.isValid(editedUser)) {
+                updateUserInDatabase(currentUserDocument, currentUser);
+            }
+        } else {
+            startEditing();
+        }
+    }
+
+    public void deleteAccount(View v) {
+        currentUserDocument.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void v) {
+                db.collection("users").document(currentUserId).delete();
+                fAuth.getCurrentUser().delete();
+                signOutUserAndRedirect();
+            }
+        });
+    }
+
+    public void workHistoryRedirect(View v){
         Intent redirect = new Intent(this, WorkHistoryActivity.class);
         startActivity(redirect);
     }
 
-    public void signOut() {
-        fAuth.signOut();
-        Intent redirect = new Intent(this, LogInActivity.class);
-        startActivity(redirect);
+    public void signOut(View view) {
+        signOutUserAndRedirect();
     }
 }
