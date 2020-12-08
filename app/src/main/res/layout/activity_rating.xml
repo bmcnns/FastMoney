@@ -157,6 +157,15 @@
                 android:text="Submit">
 
             </com.google.android.material.button.MaterialButton>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="pay"
+                android:padding="20dp"
+                android:text="Pay">
+
+            </com.google.android.material.button.MaterialButton>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
