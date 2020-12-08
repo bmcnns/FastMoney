@@ -1,7 +1,8 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.espresso.intent.rule.IntentsTestRule;
+import androidx.test.runner.AndroidJUnit4;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +26,7 @@ import static org.junit.Assert.*;
 public class AddJob {
 
     @Rule
-    public ActivityScenarioRule<AddJobActivity> myRule = new ActivityScenarioRule<>(AddJobActivity.class);
+    public IntentsTestRule<AddJobActivity> myRule = new IntentsTestRule<>(AddJobActivity.class);
 
     @Test
     public void showsJobTitleInput() {

@@ -1,16 +1,18 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
-import android.content.Context;
+import androidx.test.espresso.intent.rule.IntentsTestRule;
+import androidx.test.runner.AndroidJUnit4;
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.platform.app.InstrumentationRegistry;
-
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.dal.cs.csci3130.fastmoney.BuildConfig;
 import ca.dal.cs.csci3130.fastmoney.R;
+import ca.dal.cs.csci3130.fastmoney.testing.TestingController;
+import ca.dal.cs.csci3130.fastmoney.testing.TestingMode;
 import ca.dal.cs.csci3130.fastmoney.views.ProfileActivity;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -23,45 +25,61 @@ import static androidx.test.espresso.matcher.ViewMatchers.withHint;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class Profile {
 
     @Rule
-    public ActivityScenarioRule<ProfileActivity> myRule = new ActivityScenarioRule<>(ProfileActivity.class);
+    public IntentsTestRule<ProfileActivity> myRule = new IntentsTestRule<>(ProfileActivity.class);
+
+    @Before
+    public void setUp() {
+        ProfileActivity.testingMode = TestingMode.ENABLED;
+    }
+
+    @After
+    public void tearDown() {
+        ProfileActivity.testingMode = TestingMode.DISABLED;
+    }
 
     @Test
     public void showsRatings() {
         onView(withText("Employer Rating")).check(matches(isDisplayed()));
         onView(withText("Employee Rating")).check(matches(isDisplayed()));
-        onView(withId(R.id.employeeStars)).check(matches(isDisplayed()));
-        onView(withId(R.id.employerStars)).check(matches(isDisplayed()));
+        onView(withId(R.id.profile_employerRating)).check(matches(isDisplayed()));
+        onView(withId(R.id.profile_employeeRating)).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsEditButtonWhenNotEditing() {
-        onView(withId(R.id.editBtn)).check(matches(isDisplayed()));
+        onView(withId(R.id.profile_editButton)).check(matches(isDisplayed()));
     }
 
     // Or some other visual appearance to show a difference between editing and not-editing.
     @Test
     public void showsEditButtonFocusedWhenEditing() {
-        onView(withId(R.id.editBtn)).check(matches(isFocused()));
-    }
-
-    @Test
-    public void creditCardIsCensored() {
-        onView(withSubstring("****")).check(matches(isDisplayed()));
+        onView(withId(R.id.profile_editButton)).check(matches(isFocused()));
     }
 
     @Test
     public void showsProfileImage() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         onView(withId(R.id.userImage)).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsSignOutButton() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         onView(withText("Sign Out")).check(matches(isDisplayed()));
     }
 
@@ -75,12 +93,6 @@ public class Profile {
         onView(withHint("john.doe@example.com")).check(matches(isDisplayed()));
     }
 
-    @Test
-    public void showsCreditCard() {
-        onView(withHint("**** **** **** 5678")).check(matches(isDisplayed()));
-    }
-
-    @Test
     public void showsFirstName() {
         onView(withText("John")).check(matches(isDisplayed()));
         onView(withText("Doe")).check(matches(isDisplayed()));
@@ -91,20 +103,13 @@ public class Profile {
         onView(withText("Halifax, Nova Scotia, Canada")).check(matches(isDisplayed()));
     }
 
-
-    @Test
-    public void creditCardsCantBeSetToBlank() {
-        onView(withId(R.id.editBtn)).perform(click());
-        onView(withHint("**** **** **** 5678")).perform(replaceText(""));
-        onView(withText("Error: Credit cards cannot be blank.")).check(matches(isDisplayed()));
-        onView(withHint("**** **** **** 5678")).check(matches(withText("**** **** **** 5678")));
-    }
-
     @Test
     public void emailsCantBeSetToBlank() {
-        onView(withId(R.id.editBtn)).perform(click());
+        ProfileActivity.testingMode = TestingMode.ENABLED;
+
+        onView(withId(R.id.profile_editButton)).perform(click());
         onView(withHint("john.doe@example.com")).perform(replaceText(""));
-        onView(withText("Error: Credit cards cannot be blank.")).check(matches(isDisplayed()));
+        onView(withText("Error: Email cannot be blank.")).check(matches(isDisplayed()));
         onView(withHint("**** **** **** 5678")).check(matches(withText("**** **** **** 5678")));
     }
 }

@@ -13,9 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -33,6 +35,7 @@ import ca.dal.cs.csci3130.fastmoney.testing.TestingController;
 import ca.dal.cs.csci3130.fastmoney.testing.TestingMode;
 
 public class ProfileActivity extends AppCompatActivity {
+    public static TestingMode testingMode;
     static boolean isEditing = false;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -47,9 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        TestingController.setTestingMode(TestingMode.ENABLED);
-
-        if (TestingController.getTestingMode() == TestingMode.DISABLED) {
+        if (ProfileActivity.testingMode == TestingMode.DISABLED) {
             queryDatabaseForUserAndUpdateDisplay(currentUserDocument);
         }
         else {
@@ -138,19 +139,32 @@ public class ProfileActivity extends AppCompatActivity {
         editedUserData.put("lastName", user.getLastName());
         editedUserData.put("email", user.getEmail());
 
-        userDocument.update(editedUserData).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                stopEditing();
-            }
-        });
+        if (ProfileActivity.testingMode == TestingMode.ENABLED) {
+            stopEditing();
+        }
+        else {
+            userDocument.update(editedUserData).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(@NonNull Void T) {
+                    stopEditing();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    try {
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            });
+        }
     }
 
     private void stopEditing() {
         ProfileActivity.isEditing = false;
         ((MaterialButton)findViewById(R.id.profile_editButton)).setText("Edit");
         ((Button)findViewById(R.id.profile_cancelButton)).setVisibility(View.INVISIBLE);
-        ((LinearLayout)findViewById(R.id.profile_editNameContainer)).setVisibility(View.INVISIBLE);
+        ((MaterialCardView)findViewById(R.id.profile_editNameContainer)).setVisibility(View.INVISIBLE);
         ((TextView)findViewById(R.id.profile_fullName)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.profile_emailInput)).setFocusable(false);
         ((TextView)findViewById(R.id.profile_firstNameInput)).setText(currentUser.getFirstName());
@@ -162,7 +176,7 @@ public class ProfileActivity extends AppCompatActivity {
         ((MaterialButton)findViewById(R.id.profile_editButton)).setText("Save");
         ((TextView)findViewById(R.id.profile_fullName)).setVisibility(View.INVISIBLE);
         ((Button)findViewById(R.id.profile_cancelButton)).setVisibility(View.VISIBLE);
-        ((LinearLayout)findViewById(R.id.profile_editNameContainer)).setVisibility(View.VISIBLE);
+        ((MaterialCardView)findViewById(R.id.profile_editNameContainer)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.profile_emailInput)).setFocusableInTouchMode(true);
         ((TextView)findViewById(R.id.profile_emailInput)).setFocusable(true);
     }

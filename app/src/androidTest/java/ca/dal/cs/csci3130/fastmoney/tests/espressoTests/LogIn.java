@@ -1,7 +1,7 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.espresso.intent.rule.IntentsTestRule;
+import androidx.test.runner.AndroidJUnit4;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -34,7 +34,7 @@ public class LogIn {
     }
 
     @Rule
-    public ActivityScenarioRule<LogInActivity> myRule = new ActivityScenarioRule<>(LogInActivity.class);
+    public IntentsTestRule<LogInActivity> myRule = new IntentsTestRule<>(LogInActivity.class);
 
     //ensure elements properly showing
     @Test

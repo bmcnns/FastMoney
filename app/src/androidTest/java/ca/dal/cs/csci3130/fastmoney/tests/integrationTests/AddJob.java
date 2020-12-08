@@ -1,7 +1,8 @@
 package ca.dal.cs.csci3130.fastmoney.tests.integrationTests;
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.espresso.intent.rule.IntentsTestRule;
+import androidx.test.runner.AndroidJUnit4;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +17,7 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class AddJob {
     @Rule
-    public ActivityScenarioRule<MainActivity> myRule = new ActivityScenarioRule<>(MainActivity.class);
+    public IntentsTestRule<MainActivity> myRule = new IntentsTestRule<>(MainActivity.class);
 
     @Test
     public void successfulPostJobRedirectsToJobPageAsOwner() {

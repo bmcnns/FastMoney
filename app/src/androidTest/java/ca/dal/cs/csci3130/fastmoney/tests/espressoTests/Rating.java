@@ -1,9 +1,11 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
 import android.content.Context;
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
+
+import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.runner.AndroidJUnit4;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +26,7 @@ import static org.junit.Assert.*;
 public class Rating {
 
     @Rule
-    public ActivityScenarioRule<RatingActivity> myRule = new ActivityScenarioRule<>(RatingActivity.class);
+    public IntentsTestRule<RatingActivity> myRule = new IntentsTestRule<>(RatingActivity.class);
 
     @Test
     public void ratingMustBeSelected() {
