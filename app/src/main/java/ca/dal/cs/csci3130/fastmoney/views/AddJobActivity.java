@@ -61,19 +61,19 @@ public class AddJobActivity extends AppCompatActivity {
 
     private void showFormErrors(boolean title, boolean payRate, boolean jobDescription, boolean images) {
         if (title) {
-            ((TextView)(this.findViewById(R.id.addJob_titleError))).setVisibility(View.VISIBLE);
+            ((LinearLayout)(this.findViewById(R.id.addJob_titleError))).setVisibility(View.VISIBLE);
         }
 
         if (payRate) {
-            ((TextView)(this.findViewById(R.id.addJob_payRateError))).setVisibility(View.VISIBLE);
+            ((LinearLayout)(this.findViewById(R.id.addJob_payRateError))).setVisibility(View.VISIBLE);
         }
 
         if (jobDescription) {
-            ((TextView)(this.findViewById(R.id.addJob_descriptionError))).setVisibility(View.VISIBLE);
+            ((LinearLayout)(this.findViewById(R.id.addJob_descriptionError))).setVisibility(View.VISIBLE);
         }
 
         if (images) {
-            ((TextView)(this.findViewById(R.id.addJob_imagesError))).setVisibility(View.VISIBLE);
+            ((LinearLayout)(this.findViewById(R.id.addJob_imagesError))).setVisibility(View.VISIBLE);
         }
     }
 
@@ -297,6 +297,24 @@ public class AddJobActivity extends AppCompatActivity {
         startActivityForResult(i, 69);
     }
 
+    public void showErrors(String title, int payRate, String description) {
+        if (!Job.isTitleValid(title)) {
+            showFormErrors(true, false, false, false);
+        }
+
+        if (!Job.isPayRateValid(payRate)) {
+            showFormErrors(false, true, false, false);
+        }
+
+        if (!Job.isDescriptionValid(description)) {
+            showFormErrors(false, false, true, false);
+        }
+
+        if (!Job.isImagesValid(unpostedJob.getImages())) {
+            showFormErrors(false, false, false, true);
+        }
+    }
+
     public void postJob(View view) throws Exception {
         if (unpostedJob == null)
             unpostedJob = createJobFromForm();
@@ -308,17 +326,7 @@ public class AddJobActivity extends AppCompatActivity {
         int payRate = extractPayRateFromForm();
         String description = extractDescriptionFromForm();
 
-        if (!Job.isTitleValid(title))
-            showFormErrors(true,false,false,false);
-
-        if (!Job.isPayRateValid(payRate))
-            showFormErrors(false,true,false,false);
-
-        if (!Job.isDescriptionValid(description))
-            showFormErrors(false,false,true,false);
-
-        if (!Job.isImagesValid(unpostedJob.getImages()))
-            showFormErrors(false,false,false,true);
+        showErrors(title, payRate, description);
 
         if (Job.isValid(unpostedJob)) {
             uploadImagesToFirebase(unpostedJob);
@@ -326,7 +334,7 @@ public class AddJobActivity extends AppCompatActivity {
         }
 
         else {
-            showFormErrors(true,true,true,true);
+            showErrors(title, payRate, description);
         }
     }
 }

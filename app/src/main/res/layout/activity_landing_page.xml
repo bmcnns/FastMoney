@@ -1,100 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    android:layout_weight="1"
+    android:background="#CCFF90"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:background="@color/color9"
+        android:clickable="false"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/welcomeHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
-            android:text="Welcome, Bryce"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-            android:textColor="#000000" />
-
-        <TextView
-            android:id="@+id/signOutLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="0dp"
-            android:onClick="signOut"
-            android:text="Not Bryce? Sign out."
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#0376DA" />
-
-        <Button
-            android:id="@+id/profileButton"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="5dp"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:onClick="redirectToProfilePage"
-            android:paddingVertical="30dp"
-            android:shadowRadius="3"
-            android:text="Your profile"
-            android:textAllCaps="true" />
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:clickable="false"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/workButton"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:clickable="false"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Delivery"
+                    android:textAllCaps="true"
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="5dp"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:onClick="redirectToWorkPage"
-            android:paddingVertical="30dp"
-            android:text="Your work" />
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:clickable="false"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/jobsButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="5dp"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:onClick="redirectToHirePage"
-            android:paddingVertical="30dp"
-            android:text="Your Hiring" />
+            <TextView
+                android:id="@+id/Location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:padding="10dp"
+                android:text="1521 Lemarchant Street"
+                android:textColor="@color/color9"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/postJobButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="5dp"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:onClick="redirectToPostJobPage"
-            android:paddingVertical="30dp"
-            android:text="Post a job" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.85"
+        android:background="@color/theme2"
+        android:orientation="vertical" />
 
-        <Button
-            android:id="@+id/findJobButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="5dp"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:onClick="redirectToFindJobPage"
-            android:paddingVertical="30dp"
-            android:text="Find a job" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:clickable="false"
+        android:orientation="horizontal">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Work"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1666666"
+            android:background="@color/theme4"
+            android:clickable="true"
+            android:onClick="redirectToWorkPage">
 
+            <TextView
+                android:id="@+id/workIcon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fontello"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="@string/icon_briefcase"
+                android:textColor="@color/color2"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text="Work"
+                android:textAllCaps="true"
+                android:textColor="@color/color2"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/workIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Hire"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.166666"
+            android:background="@color/theme0"
+            android:clickable="true"
+            android:onClick="redirectToHirePage">
+
+            <TextView
+                android:id="@+id/hireIcon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fontello"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="@string/icon_handshake"
+                android:textColor="@color/color3"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text="Hire"
+                android:textAllCaps="true"
+                android:textColor="@color/color3"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hireIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addJob"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1666666"
+            android:background="@color/theme0"
+            android:clickable="true"
+            android:onClick="redirectToPostJobPage">
+
+            <TextView
+                android:id="@+id/addJobIcon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fontello"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="@string/icon_plusSign"
+                android:textColor="@color/color3"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text="POST JOB"
+                android:textAllCaps="true"
+                android:textColor="@color/color3"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addJobIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/findJob"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1666666"
+            android:background="@color/theme0"
+            android:clickable="true"
+            android:onClick="redirectToFindJobPage">
+
+            <TextView
+                android:id="@+id/findJobIcon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fontello"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="@string/icon_plusSign"
+                android:textColor="@color/color3"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text="FIND JOB"
+                android:textAllCaps="true"
+                android:textColor="@color/color3"
+                android:textColorHighlight="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/findJobIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.166666666"
+            android:background="@color/theme0"
+            android:clickable="true">
+
+            <TextView
+                android:id="@+id/chatIcon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fontello"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="@string/icon_chatBubble"
+                android:textColor="@color/color3"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text="Chat"
+                android:textAllCaps="true"
+                android:textColor="@color/color3"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chatIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.16666666"
+            android:background="@color/theme0"
+            android:clickable="true"
+            android:onClick="redirectToProfilePage">
+
+            <TextView
+                android:id="@+id/profileIcon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/fontello"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="@string/icon_chatBubble"
+                android:textColor="@color/color3"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Profile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text="Profile"
+                android:textAllCaps="true"
+                android:textColor="@color/color3"
+                android:textSize="9sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
 
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>

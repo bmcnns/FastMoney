@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,12 +32,11 @@ public class LogInActivity extends AppCompatActivity {
         fAuth= FirebaseAuth.getInstance();
 
         //if user is already logged in
-        if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
-            finish();
-        }
+        //if (fAuth.getCurrentUser() != null) {
+        //    startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
+        //    finish();
+        //}
     }
-
 
     //gets the inputted email
     protected String getEmailInput(){
@@ -52,8 +52,11 @@ public class LogInActivity extends AppCompatActivity {
 
     //show error messages for unsuccessful log ins
     protected void setStatusMessage(String message){
-        TextView statusLabel = findViewById(R.id.statusLabel);
-        statusLabel.setText(message);
+        LinearLayout statusLabel = findViewById(R.id.statusLabel);
+        statusLabel.setVisibility(View.VISIBLE);
+
+        TextView statusText = findViewById(R.id.statusText);
+        statusText.setText(message);
     }
 
     //checks to make sure the email and password are in a valid format

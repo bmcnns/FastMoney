@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.dal.cs.csci3130.fastmoney.R;
+import ca.dal.cs.csci3130.fastmoney.models.User;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -45,12 +48,11 @@ public class RegistrationActivity extends AppCompatActivity {
         final TextInputEditText firstNameField = this.findViewById(R.id.first_name_field);
         final TextInputEditText lastNameField = this.findViewById(R.id.last_name_field);
 
-
         //if user is already logged in
-        if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
-            finish();
-        }
+        //if (fAuth.getCurrentUser() != null) {
+        //    startActivity(new Intent(getApplicationContext(), LandingPageActivity.class));
+        //    finish();
+        //}
 
         /**
          * Creates a user from the information given in the registration form.
@@ -68,6 +70,21 @@ public class RegistrationActivity extends AppCompatActivity {
                 final int employeeRatingCount=0;
                 final double employeeRating=0;
 
+                if (!User.isValidName(firstName)) {
+                    ((LinearLayout)findViewById(R.id.registration_firstNameError)).setVisibility(View.VISIBLE);
+                }
+
+                if (!User.isValidName(lastName)) {
+                    ((LinearLayout)findViewById(R.id.registration_lastNameError)).setVisibility(View.VISIBLE);
+                }
+
+                if (!User.isValidEmail(email)) {
+                    ((LinearLayout)findViewById(R.id.registration_emailError)).setVisibility(View.VISIBLE);
+                }
+
+                if (password.length() < 1) {
+                    ((LinearLayout)findViewById(R.id.registration_passwordError)).setVisibility(View.VISIBLE);
+                }
 
                 //Registration with firebase authentication and store data to firebase firestone
 
@@ -88,9 +105,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                         user.put("employerRatingCount",employerRatingCount);
                                         user.put("employeeRating",employeeRating);
                                         user.put("employeeRatingCount",employeeRatingCount);
-
-
-
 
                                         /** Store extra User data to firestone once successful registration to firebase authentication
                                          * */
