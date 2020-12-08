@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import ca.dal.cs.csci3130.fastmoney.BuildConfig;
 import ca.dal.cs.csci3130.fastmoney.models.Job;
 import ca.dal.cs.csci3130.fastmoney.models.User;
 
@@ -13,8 +14,6 @@ import static ca.dal.cs.csci3130.fastmoney.testing.TestUserType.EMPLOYER;
 import static ca.dal.cs.csci3130.fastmoney.testing.TestUserType.RANDOM;
 
 public abstract class TestingController {
-    private static TestingMode testingMode = TestingMode.DISABLED;
-
     private static User testRandomUser = new User(
             "John",
             "Doe",
@@ -60,10 +59,6 @@ public abstract class TestingController {
             testEmployee
     );
 
-    public static TestingMode getTestingMode() {
-        return TestingController.testingMode;
-    }
-
     private static Job getTestJob() {
         return TestingController.testJob;
     }
@@ -83,9 +78,5 @@ public abstract class TestingController {
             default:
                 return null;
         }
-    }
-
-    public static void setTestingMode(TestingMode testingMode) {
-        TestingController.testingMode = testingMode;
     }
 }

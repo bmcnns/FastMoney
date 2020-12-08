@@ -57,6 +57,42 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintStart_toStartOf="parent" />
 
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/profile_editNameContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="64dp"
+                        android:layout_marginEnd="64dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/profile_lastNameInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:hint="John"
+                                android:inputType="textPersonName"
+                                android:visibility="visible" />
+
+                            <EditText
+                                android:id="@+id/profile_firstNameInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:hint="Doe"
+                                android:inputType="textPersonName"
+                                android:visibility="visible" />
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/profile_editButton"
                         android:layout_width="wrap_content"
@@ -68,10 +104,9 @@
                         android:onClick="toggleEditing"
                         android:text="Edit"
                         android:textColor="#FFFFFF"
-                        app:backgroundTint="@color/design_default_color_primary"></com.google.android.material.button.MaterialButton>
+                        app:backgroundTint="@color/design_default_color_primary" />
 
-
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/profile_cancelButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -86,36 +121,6 @@
                         app:backgroundTint="@android:color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/profile_editButton" />
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/profile_editNameContainer"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="64dp"
-                        android:layout_marginLeft="64dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="64dp"
-                        android:layout_marginRight="64dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:visibility="gone">
-
-                        <EditText
-                            android:id="@+id/profile_firstNameInput"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:inputType="textPersonName"
-                            android:visibility="visible" />
-
-                        <EditText
-                            android:id="@+id/profile_lastNameInput"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:inputType="textPersonName"
-                            android:visibility="visible" />
-                    </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -263,7 +268,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
                         android:text="Email"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 

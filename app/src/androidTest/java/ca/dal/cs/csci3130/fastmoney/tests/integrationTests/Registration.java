@@ -2,8 +2,7 @@ package ca.dal.cs.csci3130.fastmoney.tests.integrationTests;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -28,9 +27,6 @@ public class Registration {
 
     @Rule
     public IntentsTestRule<MainActivity> myIntentsTestRule = new IntentsTestRule<>(MainActivity.class);
-
-    @Rule
-    public ActivityScenarioRule<MainActivity> myRule = new ActivityScenarioRule<>(MainActivity .class);
 
     @Test
     public void successfulRegisterRedirects() throws InterruptedException {

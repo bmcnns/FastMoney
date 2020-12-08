@@ -9,6 +9,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.dal.cs.csci3130.fastmoney.BuildConfig;
 import ca.dal.cs.csci3130.fastmoney.R;
 import ca.dal.cs.csci3130.fastmoney.testing.TestingController;
 import ca.dal.cs.csci3130.fastmoney.testing.TestingMode;
@@ -24,7 +25,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withHint;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 public class Profile {
@@ -34,12 +34,12 @@ public class Profile {
 
     @Before
     public void setUp() {
-      TestingController.setTestingMode(TestingMode.ENABLED);
+        ProfileActivity.testingMode = TestingMode.ENABLED;
     }
 
     @After
     public void tearDown() {
-        TestingController.setTestingMode(TestingMode.DISABLED);
+        ProfileActivity.testingMode = TestingMode.DISABLED;
     }
 
     @Test
@@ -59,17 +59,6 @@ public class Profile {
     @Test
     public void showsEditButtonFocusedWhenEditing() {
         onView(withId(R.id.profile_editButton)).check(matches(isFocused()));
-    }
-
-    @Test
-    public void creditCardIsCensored() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        onView(withSubstring("****")).check(matches(isDisplayed()));
     }
 
     @Test
@@ -104,12 +93,6 @@ public class Profile {
         onView(withHint("john.doe@example.com")).check(matches(isDisplayed()));
     }
 
-    @Test
-    public void showsCreditCard() {
-        onView(withHint("**** **** **** 5678")).check(matches(isDisplayed()));
-    }
-
-    @Test
     public void showsFirstName() {
         onView(withText("John")).check(matches(isDisplayed()));
         onView(withText("Doe")).check(matches(isDisplayed()));
@@ -122,6 +105,8 @@ public class Profile {
 
     @Test
     public void emailsCantBeSetToBlank() {
+        ProfileActivity.testingMode = TestingMode.ENABLED;
+
         onView(withId(R.id.profile_editButton)).perform(click());
         onView(withHint("john.doe@example.com")).perform(replaceText(""));
         onView(withText("Error: Email cannot be blank.")).check(matches(isDisplayed()));
