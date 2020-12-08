@@ -1,7 +1,7 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.espresso.intent.rule.IntentsTestRule;
+import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -18,7 +18,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class WorkHistory {
 
     @Rule
-    public ActivityScenarioRule<WorkHistoryActivity> myRule = new ActivityScenarioRule<>(WorkHistoryActivity.class);
+    public IntentsTestRule<WorkHistoryActivity> myRule = new IntentsTestRule<>(WorkHistoryActivity.class);
 
     @Test
     public void titleShows() {

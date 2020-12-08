@@ -47,8 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        TestingController.setTestingMode(TestingMode.ENABLED);
-
         if (TestingController.getTestingMode() == TestingMode.DISABLED) {
             queryDatabaseForUserAndUpdateDisplay(currentUserDocument);
         }

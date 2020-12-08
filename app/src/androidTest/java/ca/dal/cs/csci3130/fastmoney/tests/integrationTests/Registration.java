@@ -47,7 +47,6 @@ public class Registration {
         Thread.sleep(4000);
         intended(hasComponent(LandingPageActivity.class.getName()));
         onView(withId(R.id.profileButton)).perform(click());
-        onView(withId(R.id.deleteAccountBtn)).perform(click());
     }
 
     @Test

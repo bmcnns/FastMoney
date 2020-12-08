@@ -1,9 +1,10 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
 import android.content.Context;
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
+
+import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -27,7 +28,7 @@ import static org.junit.Assert.*;
 public class Work {
 
     @Rule
-    public ActivityScenarioRule<WorkActivity> myRule = new ActivityScenarioRule<>(WorkActivity.class);
+    public IntentsTestRule<WorkActivity> myRule = new IntentsTestRule<>(WorkActivity.class);
 
     @Before
     public void setUp() {

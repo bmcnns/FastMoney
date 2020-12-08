@@ -189,14 +189,6 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/profile_employerRatingError"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Error: you must provide a rating."
-                        android:textColor="#FF0000"
-                        android:visibility="gone"></TextView>
-
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -251,15 +243,6 @@
                             app:srcCompat="@android:drawable/btn_star_big_off" />
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/rating_ratingError"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Error: you must provide a rating."
-                        android:textColor="#FF0000"
-                        android:visibility="gone">
-
-                    </TextView>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

@@ -1,9 +1,10 @@
 package ca.dal.cs.csci3130.fastmoney.tests.espressoTests;
 
 import android.content.Context;
-import androidx.test.ext.junit.rules.ActivityScenarioRule;
+
+import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -27,12 +28,7 @@ import static org.junit.Assert.*;
 public class Hire {
 
     @Rule
-    public ActivityScenarioRule<HireActivity> myRule = new ActivityScenarioRule<>(HireActivity.class);
-
-    @Before
-    public void setUp() {
-        HireActivity.TEST_MODE = "";
-    }
+    public IntentsTestRule<HireActivity> myRule = new IntentsTestRule<>(HireActivity.class);
 
     @Test
     public void showsFilledJobs() {
@@ -60,25 +56,11 @@ public class Hire {
 
     @Test
     public void showsNoJobsWhenNoJobs() {
-        HireActivity.TEST_MODE = "NO_JOBS";
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         onView(withText("You haven't posted any jobs.")).check(matches(isDisplayed()));
     }
 
     @Test
     public void showsPostAJobButtonWhenNoJobs() {
-        HireActivity.TEST_MODE = "NO_JOBS";
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         onView(withText("Post Job")).check(matches(isDisplayed()));
     }
 }
