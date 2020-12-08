@@ -23,4 +23,11 @@
     <string name="email">Email</string>
     <string name="passwords">Passwords</string>
     <string name="title_activity_login">activity_login</string>
+
+
+    <!--font awesome -->
+    <string name="icon_briefcase">&#xe800;</string>
+    <string name="icon_plusSign">&#xf0fe;</string>
+    <string name="icon_chatBubble">&#xf0e6;</string>
+    <string name="icon_handshake">&#xf2b5;</string>
 </resources>

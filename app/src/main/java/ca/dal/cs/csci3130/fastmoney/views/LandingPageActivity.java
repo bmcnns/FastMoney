@@ -37,8 +37,8 @@ public class LandingPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
 
-        final TextView welcomeMessage = (TextView)findViewById(R.id.welcomeHeader);
-        final TextView signOutLink = (TextView)findViewById(R.id.signOutLink);
+        //final TextView welcomeMessage = (TextView)findViewById(R.id.welcomeHeader);
+        //final TextView signOutLink = (TextView)findViewById(R.id.signOutLink);
 
         db.collection("users").document(currentUser)
                 .get()
@@ -53,8 +53,8 @@ public class LandingPageActivity extends AppCompatActivity {
                                 Map<String, Object> data = document.getData();
                                 fName = (String) data.get("firstName");
                                 lName = (String) data.get("lastName");
-                                welcomeMessage.setText("Welcome, " + fName);
-                                signOutLink.setText("Not " + fName + "? Sign out.");
+                                //welcomeMessage.setText("Welcome, " + fName);
+                                //signOutLink.setText("Not " + fName + "? Sign out.");
                             } else {
                                 Log.w(TAG, "Error getting documents.", task.getException());
                             }

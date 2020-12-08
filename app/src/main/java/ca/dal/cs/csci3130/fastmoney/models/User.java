@@ -110,7 +110,7 @@ public class User {
         return firstName+" "+lastName;
     }
 
-    private boolean isValidName(String name) {
+    public static boolean isValidName(String name) {
         if (name.length() > User.MAXIMUM_NAME_LENGTH)
             return false;
         else if (name.length() < 1)
@@ -119,14 +119,14 @@ public class User {
             return true;
     }
 
-    private boolean hasValidEmail() {
-        if (getEmail().length() > User.MAXIMUM_EMAIL_LENGTH)
+    public static boolean isValidEmail(String email) {
+        if (email.length() > User.MAXIMUM_EMAIL_LENGTH)
             return false;
-        else if (getEmail().length() < 1)
+        else if (email.length() < 1)
             return false;
-        else if (!getEmail().contains("@"))
+        else if (email.contains("@"))
             return false;
-        else if (!getEmail().contains("."))
+        else if (email.contains("."))
             return false;
         else
             return true;
@@ -167,7 +167,7 @@ public class User {
         return (
                 user.isValidName(user.getFirstName())
                         && user.isValidName(user.getLastName())
-                        && user.hasValidEmail()
+                        && user.isValidEmail(user.getEmail())
                         && user.hasValidLocation()
                         && user.hasValidCreditCard()
                         && user.hasValidImage()
